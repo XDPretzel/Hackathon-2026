@@ -5,12 +5,16 @@ import pyautogui
 
 
 #=============== Play Gesture detection ===============
-def play_gesture():
-    pass
+def play_gesture(landmarks):
+    """Detects an Open Hand (4 fingers extended)"""
+    # tips: 8, 12, 16, 20 | joints: 6, 10, 14, 18
+    return all([landmarks.landmark[tip].y < landmarks.landmark[tip-2].y for tip in [8, 12, 16, 20]])
+
 
 #=============== Pause Gesture detection ===============
-def pause_gesture():
-    pass
+def pause_gesture(landmarks):
+    """Detects a Closed Fist (4 fingers curled)"""
+    return all([landmarks.landmark[tip].y > landmarks.landmark[tip-2].y for tip in [8, 12, 16, 20]])
 
 
 #=============== Skip Gesture detection ===============
