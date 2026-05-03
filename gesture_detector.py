@@ -49,5 +49,23 @@ def volume_down_gesture():
     pass
 
 #=============== Save/Like Gesture detection ===============
-def save_like_gesture():
-    pass
+def detect_heart_gesture(multi_hand_landmarks):
+    """Detects a heart shape formed by two hands (joined thumbs and index fingers)"""
+    if len(multi_hand_landmarks) < 2:
+        return False
+        
+    # Get landmarks for both hands
+    h1 = multi_hand_landmarks[0].landmark
+    h2 = multi_hand_landmarks[1].landmark
+    
+    # 1. Thumbs (4) should be close to each other (Bottom of heart)
+    thumb_dist = ((h1[4].x - h2[4].x)**2 + (h1[4].y - h2[4].y)**2)**0.5
+    
+    # 2. Index fingers (8) should be close to each other (Top center of heart)
+    index_dist = ((h1[8].x - h2[8].x)**2 + (h1[8].y - h2[8].y)**2)**0.5
+    
+    # 3. Check if hands are roughly at the same height
+    y_diff = abs(h1[0].y - h2[0].y)
+    
+    # Thresholds (found via intuition, may need adjustment)
+    return thumb_dist < 0.1 and index_dist < 0.1 and y_diff < 0.1
