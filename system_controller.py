@@ -10,18 +10,15 @@ class SystemController:
         
         if self.is_windows:
             try:
-                from ctypes import cast, POINTER
-                from comtypes import CLSCTX_ALL
-                from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
-                self.has_pycaw = True
+                from pycaw.pycaw import AudioUtilities
                 
                 devices = AudioUtilities.GetSpeakers()
-                interface = devices.Activate(
-                    IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-                self.volume = cast(interface, POINTER(IAudioEndpointVolume))
-            except ImportError:
+                self.volume = devices.EndpointVolume
+                self.has_pycaw = True
+            except Exception as e:
                 self.has_pycaw = False
-                print("WARNING: pycaw not installed. Absolute volume control limited on Windows.")
+                print(f"WARNING: pycaw initialization failed: {e}")
+                print("Absolute volume control limited on Windows.")
 
     # --- Volume Controls ---
     def get_system_volume(self):
