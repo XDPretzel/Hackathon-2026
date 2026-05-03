@@ -38,6 +38,7 @@ current_vol = sys_ctrl.get_system_volume()
 is_adjusting_vol = False
 vol_start_y = 0
 vol_start_level = 0
+win_is_playing = False
 
 swipe_start_x = None
 palm_start_time = 0
@@ -117,9 +118,10 @@ while cap.isOpened():
                     # Also check for "Play" while holding palm
                     elif current_time - last_action_time > COOLDOWN:
                         spotify_state = sys_ctrl.get_spotify_state()
-                        if spotify_state == "paused":
+                        if spotify_state == "paused" or (spotify_state == "unknown" and not win_is_playing):
                             sys_ctrl.play()
                             status = "RESUMING..."
+                            win_is_playing = True
                             last_action_time = current_time
                 else:
                     status = "PREPARING PALM..."
@@ -131,9 +133,10 @@ while cap.isOpened():
                 
                 if current_time - last_action_time > COOLDOWN:
                     spotify_state = sys_ctrl.get_spotify_state()
-                    if spotify_state == "playing":
+                    if spotify_state == "playing" or (spotify_state == "unknown" and win_is_playing):
                         sys_ctrl.pause()
                         status = "PAUSING..."
+                        win_is_playing = False
                         last_action_time = current_time
             else:
                 palm_start_time = 0
