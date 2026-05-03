@@ -64,7 +64,7 @@ try:
             # Application State
             self.is_tracking = False
             self.is_camera_on = False
-            self.minimize_to_tray = True 
+            self.minimize_to_tray = False 
             self.tray_icon = None
             self.cap = None     # Open Camera capture object
 
@@ -125,7 +125,7 @@ try:
                                                 fg_color="transparent", hover_color="#181818", text_color="#888888",
                                                 command=self.toggle_camera)
             self.cam_toggle_btn.pack(side="left", padx=20, pady=10)
-            self.minimize_btn = ctk.CTkButton(self.bottom_bar, text="MINIMIZE", font=("Segoe UI", 11, "bold"),
+            self.minimize_btn = ctk.CTkButton(self.bottom_bar, text="EXIT", font=("Segoe UI", 11, "bold"),
                                                fg_color="transparent", hover_color="#181818", text_color="#888888",
                                                command=self.on_close)
             self.minimize_btn.pack(side="right", padx=20)
