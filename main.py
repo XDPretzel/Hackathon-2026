@@ -11,7 +11,7 @@ from ui_utils import draw_status, draw_volume_bar
 from system_controller import SystemController
 from gesture_detector import (
     play_gesture, pause_gesture, skip_gesture, previous_gesture, 
-    is_pinching, get_hand_y, detect_heart_gesture, is_pointing_up, get_hand_x
+    is_pinching, get_hand_y, is_pointing_up, get_hand_x
 )
 
 # Initialize MediaPipe
@@ -89,8 +89,11 @@ class App(ctk.CTk):
         # Logic State
         self.sys_ctrl = SystemController()
         self.COOLDOWN = 1.5
-        self.SWIPE_SETTLE_TIME = 0.3
-        self.SWIPE_THRESHOLD = 0.3
+
+        #SWIPING SENSITIVITY 
+        self.SWIPE_SETTLE_TIME = 0.2
+        self.SWIPE_THRESHOLD = 0.25
+        
         self.last_action_time = 0
         self.status = "SYSTEM STANDBY"
         self.current_vol = self.sys_ctrl.get_system_volume()
@@ -188,7 +191,6 @@ class App(ctk.CTk):
             if not self.is_tracking and self.cap:
                 self.cap.release()
                 self.cap = None
-            self.cam_label.configure(image=None, text="CAMERA INACTIVE")
 
     def update_camera(self):
         if (self.is_camera_on or self.is_tracking) and self.cap and self.cap.isOpened():
@@ -203,15 +205,7 @@ class App(ctk.CTk):
                     current_time = time.time()
 
                     if results.multi_hand_landmarks:
-                        # 1. DUAL-HAND HEART GESTURE (MUST BE PRIORITIZED)
-                        if len(results.multi_hand_landmarks) == 2:
-                            if detect_heart_gesture(results.multi_hand_landmarks):
-                                if current_time - self.last_action_time > self.COOLDOWN:
-                                    pyautogui.hotkey('command', 'l') 
-                                    self.status = "SONG SAVED ❤️"
-                                    self.last_action_time = current_time
-
-                        # 2. INDIVIDUAL HAND GESTURES
+                        # INDIVIDUAL HAND GESTURES
                         for hand_landmarks in results.multi_hand_landmarks:
                             if self.is_camera_on:
                                 mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
@@ -225,7 +219,9 @@ class App(ctk.CTk):
                                     self.vol_start_level = self.sys_ctrl.get_system_volume()
                                 
                                 delta_y = self.vol_start_y - hand_y
-                                change = int(delta_y / 0.4 * 100)
+
+                                # Sensitivity of Volume Control
+                                change = int(delta_y / 0.35 * 100)
                                 new_vol = max(0, min(100, self.vol_start_level + change))
                                 self.sys_ctrl.set_system_volume(new_vol)
                                 self.current_vol = new_vol
@@ -291,7 +287,7 @@ class App(ctk.CTk):
                                 self.palm_start_time = 0
                                 self.is_swiping = False
                                 self.swipe_start_x = None
-                                if "SAVED" not in self.status and "VOLUME" not in self.status and "PALM" not in self.status:
+                                if "VOLUME" not in self.status and "PALM" not in self.status:
                                     if current_time - self.last_action_time > 1.0:
                                         self.status = "TRACKING..."
                 
@@ -310,7 +306,7 @@ class App(ctk.CTk):
                     ctk_img = ctk.CTkImage(light_image=img, dark_image=img, size=(380, 240))
                     self.cam_label.configure(image=ctk_img, text="")
             
-            # Schedule the next frame update in 15ms
+            # Schedule the next frame update in 15ms (even if ret is False)
             self.after(15, self.update_camera)
         else:
             self._loop_active = False
