@@ -1,4 +1,6 @@
 opencv-python
 mediapipe
-pygame
 pyautogui
+customtkinter
+pillow
+pystray
