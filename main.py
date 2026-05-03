@@ -58,7 +58,7 @@ class App(ctk.CTk):
         self.is_camera_on = False
         self.minimize_to_tray = True 
         self.tray_icon = None
-        self.cap = None.     # Open Camera capture object
+        self.cap = None     # Open Camera capture object
 
         # Logic Gesture State
         self.sys_ctrl = SystemController()
@@ -302,7 +302,7 @@ class App(ctk.CTk):
             self._loop_active = False
 
     def ensure_camera_active(self):
-        """Ensures the camera is hardware-connected and the loop is running."""
+        """Helper to ensure camera is opened and loop is running."""
         if not self.cap or not self.cap.isOpened():
             self.cap = cv2.VideoCapture(0)
         if not getattr(self, "_loop_active", False):
@@ -314,6 +314,7 @@ class App(ctk.CTk):
     def on_close(self):
         """Handles what happens when the window is closed or minimized."""
         if self.minimize_to_tray:
+            # Re-release camera ONLY if tracking is also OFF
             if not self.is_tracking and self.cap:
                 self.cap.release()
                 self.cap = None
@@ -341,6 +342,7 @@ class App(ctk.CTk):
         """Restores the window from the system tray."""
         self.tray_icon.stop()
         self.after(0, self.deiconify)
+        # If camera was supposed to be on, ensure cap is active
         if self.is_camera_on or self.is_tracking:
             self.after(100, self.reinit_camera)
 
