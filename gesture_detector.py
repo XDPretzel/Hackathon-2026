@@ -36,8 +36,8 @@ def skip_gesture(landmarks, prev_x):
         return False
     
     current_x = get_hand_x(landmarks)
-    # Movement going right (x increases). Threshold 0.05 can be adjusted.
-    return (current_x - prev_x) > 0.05
+    # Movement going right (x increases). Increased threshold for better control.
+    return (current_x - prev_x) > 0.15
 
 #=============== Repeat Gesture detection ===============
 def repeat_gesture(landmarks):
@@ -55,8 +55,8 @@ def previous_gesture(landmarks, prev_x):
         return False
     
     current_x = get_hand_x(landmarks)
-    # Movement going left (x decreases). Threshold 0.05 can be adjusted.
-    return (prev_x - current_x) > 0.05
+    # Movement going left (x decreases). Increased threshold for better control.
+    return (prev_x - current_x) > 0.15
 
 #=============== Volume Gesture detection ===============
 def is_pinching(landmarks):
