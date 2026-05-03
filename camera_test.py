@@ -9,6 +9,8 @@ from gesture_detector import (
     is_pinching, get_hand_y, detect_heart_gesture, is_pointing_up, get_hand_x
 )
 
+from system_controller import SystemController
+
 # Initialize MediaPipe
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
@@ -19,28 +21,29 @@ hands = mp_hands.Hands(
     min_tracking_confidence=0.7
 )
 
-def get_system_volume():
-    """Get current Computer volume (0-100)"""
-    try:
-        cmd = "osascript -e 'output volume of (get volume settings)'"
-        return int(subprocess.check_output(cmd, shell=True).decode().strip())
-    except: return 50
-
-def set_system_volume(volume):
-    """Set Computer volume (0-100)"""
-    try: subprocess.run(f"osascript -e 'set volume output volume {volume}'", shell=True)
-    except: pass
+# Initialize System Controller (Handles Mac & Windows)
+sys_ctrl = SystemController()
 
 cap = cv2.VideoCapture(0)
 
 # Settings
 COOLDOWN = 1.5
+SWIPE_THRESHOLD = 0.2 
+SWIPE_SETTLE_TIME = 0.4 # Must hold palm for 0.4s before swipe can start
 last_action_time = 0
 status = "READY"
-current_vol = get_system_volume()
-prev_x = None # Track horizontal movement for skip/prev
+current_vol = sys_ctrl.get_system_volume()
 
-print("Full Controller Active. Press 'q' to quit.")
+# Tracking state
+is_adjusting_vol = False
+vol_start_y = 0
+vol_start_level = 0
+
+swipe_start_x = None
+palm_start_time = 0
+is_swiping = False
+
+print("Deliberate Controller Active. Press 'q' to quit.")
 
 while cap.isOpened():
     success, frame = cap.read()
@@ -52,7 +55,7 @@ while cap.isOpened():
     current_time = time.time()
 
     if results.multi_hand_landmarks:
-        # 1. DUAL-HAND HEART GESTURE (MUST BE PRIORITIZED)
+        # 1. DUAL-HAND HEART GESTURE
         if len(results.multi_hand_landmarks) == 2:
             if detect_heart_gesture(results.multi_hand_landmarks):
                 if current_time - last_action_time > COOLDOWN:
@@ -64,45 +67,80 @@ while cap.isOpened():
         for hand_landmarks in results.multi_hand_landmarks:
             mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 
-            # --- VOLUME (PINCH) ---
+            # --- VOLUME CONTROL (RELATIVE) ---
             if is_pinching(hand_landmarks):
                 hand_y = get_hand_y(hand_landmarks)
-                new_vol = int((0.8 - hand_y) / 0.6 * 100)
-                new_vol = max(0, min(100, new_vol))
-                set_system_volume(new_vol)
+                if not is_adjusting_vol:
+                    is_adjusting_vol = True
+                    vol_start_y = hand_y
+                    vol_start_level = sys_ctrl.get_system_volume()
+                
+                delta_y = vol_start_y - hand_y
+                change = int(delta_y / 0.4 * 100)
+                new_vol = max(0, min(100, vol_start_level + change))
+                sys_ctrl.set_system_volume(new_vol)
                 current_vol = new_vol
                 status = f"VOLUME: {current_vol}%"
                 draw_volume_bar(frame, current_vol)
-            
-            # --- SWIPE SKIP/PREVIOUS (POINTING UP + MOTION) ---
-            elif is_pointing_up(hand_landmarks):
-                if skip_gesture(hand_landmarks, prev_x):
-                    if current_time - last_action_time > COOLDOWN:
-                        pyautogui.press('nexttrack')
-                        status = "SKIPPING >>"
-                        last_action_time = current_time
-                elif previous_gesture(hand_landmarks, prev_x):
-                    if current_time - last_action_time > COOLDOWN:
-                        pyautogui.press('prevtrack')
-                        status = "<< PREVIOUS"
-                        last_action_time = current_time
-                prev_x = get_hand_x(hand_landmarks)
-            
+                continue 
             else:
-                prev_x = None # Reset swipe tracking
+                is_adjusting_vol = False
+
+            # --- PALM GESTURES (WITH SETTLE DELAY) ---
+            if play_gesture(hand_landmarks):
+                if palm_start_time == 0:
+                    palm_start_time = current_time
                 
-                # --- PLAYBACK (PLAY/PAUSE) ---
-                gesture = None
-                if play_gesture(hand_landmarks): gesture = "PLAY"
-                elif pause_gesture(hand_landmarks): gesture = "PAUSE"
+                # Wait for settle time before allowing swipe
+                if current_time - palm_start_time > SWIPE_SETTLE_TIME:
+                    current_x = get_hand_x(hand_landmarks)
+                    
+                    if not is_swiping:
+                        is_swiping = True
+                        swipe_start_x = current_x
+                        status = "PALM READY"
+                    
+                    delta_x = current_x - swipe_start_x
+                    
+                    if abs(delta_x) > SWIPE_THRESHOLD:
+                        if current_time - last_action_time > COOLDOWN:
+                            if delta_x > 0:
+                                sys_ctrl.skip_track()
+                                status = "SKIPPING >>"
+                            else:
+                                sys_ctrl.previous_track()
+                                status = "<< PREVIOUS"
+                            
+                            last_action_time = current_time
+                            swipe_start_x = current_x 
+                    
+                    # Also check for "Play" while holding palm
+                    elif current_time - last_action_time > COOLDOWN:
+                        spotify_state = sys_ctrl.get_spotify_state()
+                        if spotify_state == "paused":
+                            sys_ctrl.play()
+                            status = "RESUMING..."
+                            last_action_time = current_time
+                else:
+                    status = "PREPARING PALM..."
+            
+            elif pause_gesture(hand_landmarks):
+                palm_start_time = 0
+                is_swiping = False
+                swipe_start_x = None
                 
-                if gesture and (current_time - last_action_time > COOLDOWN):
-                    pyautogui.press('playpause')
-                    status = f"DETECTED: {gesture}"
-                    last_action_time = current_time
-                elif not gesture and (current_time - last_action_time > 1.0):
-                    if "SAVED" not in status and "VOLUME" not in status:
-                        status = "TRACKING..."
+                if current_time - last_action_time > COOLDOWN:
+                    spotify_state = sys_ctrl.get_spotify_state()
+                    if spotify_state == "playing":
+                        sys_ctrl.pause()
+                        status = "PAUSING..."
+                        last_action_time = current_time
+            else:
+                palm_start_time = 0
+                is_swiping = False
+                swipe_start_x = None
+                if "SAVED" not in status and "VOLUME" not in status and "PALM" not in status:
+                    status = "TRACKING..."
 
     draw_status(frame, status)
     cv2.imshow("Hand Controller", frame)
