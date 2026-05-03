@@ -14,9 +14,10 @@ def pause_gesture():
 
 
 #=============== Skip Gesture detection ===============
-def skip_gesture():
-    pass
-
+def skip_gesture(landmarks):
+    """Detects Left Hand index finger pointing Right"""
+    # Index tip x > joint x (pointing right) & other fingers folded (tip y > joint y)
+    return landmarks.landmark[8].x > landmarks.landmark[6].x and all([landmarks.landmark[tip].y > landmarks.landmark[tip-2].y for tip in [12, 16, 20]])
 #=============== Previous Gesture detection ===============
 def previous_gesture():
     pass
