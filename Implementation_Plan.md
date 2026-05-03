@@ -8,6 +8,7 @@ We will break the project down into three main components: Hand Tracking, Gestur
 - Do you want to use universal media keys (which will control whatever is currently playing, like Spotify or YouTube), or do you want to specifically target a single application (like Spotify) via AppleScript? Universal media keys are usually the best choice.
 - Have you verified that your `camera_test.py` script is working and capturing your webcam feed successfully?
 - The current `requirements.txt` has `pygame`, but we will likely want to use `pynput` instead for simulating global media keystrokes. Are you okay with switching to/adding `pynput`?
+- **GUI Integration:** The GUI will feature a toggleable camera feed. The live video feed will only be active and visible when toggled on to save CPU.
 
 ## Proposed Changes
 
@@ -32,6 +33,26 @@ We will add `pynput` to our project to simulate pressing the Mac media keys (Pla
 - Initialize `mediapipe.solutions.hands`.
 - Add logic to convert hand landmarks to gestures.
 - Add an action mapping system to trigger the `pynput` media key commands when a gesture is recognized. We will need to implement a cooldown so holding a gesture doesn't trigger it 100 times per second.
+
+### GUI Application (customtkinter & pystray)
+We will build a sleek, modern desktop interface to control the background gesture process using `customtkinter`.
+
+- **Main Window (`gui.py`)**: 
+  - **Start/Stop Button**: A button to start or stop the background gesture tracking.
+  - **Toggle Camera Button**: A button to show or hide a live feed of the webcam (with hand tracking overlaid) within the GUI.
+  - **Settings Button**: A button that opens a separate settings menu (a new window).
+- **Settings Menu**:
+  - **Media Source Dropdown**: A box to select the target media source (e.g., "System Default", "Spotify", "YouTube").
+  - **Webcam Dropdown**: A box to select the video capture device index (e.g., "Camera 0", "Camera 1").
+  - **Minimize to Tray Checkbox**: A checkbox labeled "Minimize to tray when closed". If checked, closing the main window will minimize the app to the system tray using `pystray`.
+- **Threading Integration**:
+  - The MediaPipe webcam loop will run on a separate background thread within `gui.py` so the GUI remains responsive. The camera frame will be passed to the GUI for the live feed if the camera toggle is on.
+
+#### [NEW] [gui.py](file:///c:/Users/gamin/OneDrive/Documents/Hackathon/Hackathon-2026/gui.py)
+- Setup `customtkinter` main window.
+- Implement UI components (buttons, labels).
+- Implement background threading to run the `gesture_detector` concurrently.
+- Integrate `pystray` for "minimize to tray" functionality.
 
 ## Verification Plan
 
