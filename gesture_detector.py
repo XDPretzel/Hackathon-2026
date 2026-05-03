@@ -96,5 +96,13 @@ def detect_heart_gesture(multi_hand_landmarks):
     # 3. Check if hands are roughly at the same height
     y_diff = abs(h1[0].y - h2[0].y)
     
-    # Thresholds (found via intuition, may need adjustment)
-    return thumb_dist < 0.1 and index_dist < 0.1 and y_diff < 0.1
+    # 4. CRITICAL: Other fingers (Middle, Ring, Pinky) MUST be folded for a clean heart
+    # This prevents Skip/Rewind (pointing up) from being seen as a heart.
+    others_folded = True
+    for hand in [h1, h2]:
+        for tip in [12, 16, 20]:
+            if hand[tip].y < hand[tip-2].y: # Finger is extended
+                others_folded = False
+    
+    # Thresholds
+    return thumb_dist < 0.1 and index_dist < 0.1 and y_diff < 0.1 and others_folded
