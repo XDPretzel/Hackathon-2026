@@ -76,7 +76,8 @@ class App(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("Gest")
-        self.geometry("450x650")
+        # window size
+        self.geometry("380x360")
         self.configure(fg_color="#0a0a0a")  # Deep onyx
 
         # Core State
@@ -93,7 +94,7 @@ class App(ctk.CTk):
         #SWIPING SENSITIVITY 
         self.SWIPE_SETTLE_TIME = 0.2
         self.SWIPE_THRESHOLD = 0.25
-        
+
         self.last_action_time = 0
         self.status = "SYSTEM STANDBY"
         self.current_vol = self.sys_ctrl.get_system_volume()
@@ -180,12 +181,16 @@ class App(ctk.CTk):
     def toggle_camera(self):
         self.is_camera_on = not self.is_camera_on
         if self.is_camera_on:
-            self.cam_toggle_btn.configure(text="CLOSE FEED", text_color="#ffffff")
-            self.cam_container.pack(before=self.button_container, pady=(0, 20), fill="x")
+            self.geometry("380x420")
+            self.cam_toggle_btn.configure(text="← BACK", text_color="#ffffff")
+            self.button_container.pack_forget()
+            self.cam_container.pack(fill="x", pady=(0, 20))
             self.ensure_camera_active()
         else:
+            self.geometry("380x340")
             self.cam_toggle_btn.configure(text="VIEW FEED", text_color="#888888")
             self.cam_container.pack_forget()
+            self.button_container.pack(expand=True)
             
             # Stop OpenCV camera only if tracking is also off
             if not self.is_tracking and self.cap:
@@ -248,9 +253,13 @@ class App(ctk.CTk):
                                     
                                     delta_x = current_x - self.swipe_start_x
                                     
-                                    if abs(delta_x) > self.SWIPE_THRESHOLD:
+                                    # Asymmetric sensitivity: Back swipe is less sensitive (0.4 vs 0.25)
+                                    is_skip = delta_x > self.SWIPE_THRESHOLD
+                                    is_prev = delta_x < -0.4 
+
+                                    if is_skip or is_prev:
                                         if current_time - self.last_action_time > self.COOLDOWN:
-                                            if delta_x > 0:
+                                            if is_skip:
                                                 self.sys_ctrl.skip_track()
                                                 self.status = "SKIPPING >>"
                                             else:
