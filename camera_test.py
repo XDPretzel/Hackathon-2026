@@ -9,6 +9,8 @@ from gesture_detector import (
     is_pinching, get_hand_y, detect_heart_gesture, is_pointing_up, get_hand_x
 )
 
+from system_controller import SystemController
+
 # Initialize MediaPipe
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
@@ -19,25 +21,8 @@ hands = mp_hands.Hands(
     min_tracking_confidence=0.7
 )
 
-def get_system_volume():
-    """Get current Computer volume (0-100)"""
-    try:
-        cmd = "osascript -e 'output volume of (get volume settings)'"
-        return int(subprocess.check_output(cmd, shell=True).decode().strip())
-    except: return 50
-
-def set_system_volume(volume):
-    """Set Computer volume (0-100)"""
-    try: subprocess.run(f"osascript -e 'set volume output volume {volume}'", shell=True)
-    except: pass
-
-def get_spotify_state():
-    """Returns 'playing', 'paused', or 'stopped'"""
-    try:
-        cmd = "osascript -e 'tell application \"Spotify\" to player state as string'"
-        return subprocess.check_output(cmd, shell=True).decode().strip().lower()
-    except:
-        return "unknown"
+# Initialize System Controller (Handles Mac & Windows)
+sys_ctrl = SystemController()
 
 cap = cv2.VideoCapture(0)
 
@@ -47,7 +32,7 @@ SWIPE_THRESHOLD = 0.2
 SWIPE_SETTLE_TIME = 0.4 # Must hold palm for 0.4s before swipe can start
 last_action_time = 0
 status = "READY"
-current_vol = get_system_volume()
+current_vol = sys_ctrl.get_system_volume()
 
 # Tracking state
 is_adjusting_vol = False
@@ -88,12 +73,12 @@ while cap.isOpened():
                 if not is_adjusting_vol:
                     is_adjusting_vol = True
                     vol_start_y = hand_y
-                    vol_start_level = get_system_volume()
+                    vol_start_level = sys_ctrl.get_system_volume()
                 
                 delta_y = vol_start_y - hand_y
                 change = int(delta_y / 0.4 * 100)
                 new_vol = max(0, min(100, vol_start_level + change))
-                set_system_volume(new_vol)
+                sys_ctrl.set_system_volume(new_vol)
                 current_vol = new_vol
                 status = f"VOLUME: {current_vol}%"
                 draw_volume_bar(frame, current_vol)
@@ -120,10 +105,10 @@ while cap.isOpened():
                     if abs(delta_x) > SWIPE_THRESHOLD:
                         if current_time - last_action_time > COOLDOWN:
                             if delta_x > 0:
-                                subprocess.run("osascript -e 'tell application \"Spotify\" to next track'", shell=True)
+                                sys_ctrl.skip_track()
                                 status = "SKIPPING >>"
                             else:
-                                subprocess.run("osascript -e 'tell application \"Spotify\" to previous track'", shell=True)
+                                sys_ctrl.previous_track()
                                 status = "<< PREVIOUS"
                             
                             last_action_time = current_time
@@ -131,9 +116,9 @@ while cap.isOpened():
                     
                     # Also check for "Play" while holding palm
                     elif current_time - last_action_time > COOLDOWN:
-                        spotify_state = get_spotify_state()
+                        spotify_state = sys_ctrl.get_spotify_state()
                         if spotify_state == "paused":
-                            subprocess.run("osascript -e 'tell application \"Spotify\" to play'", shell=True)
+                            sys_ctrl.play()
                             status = "RESUMING..."
                             last_action_time = current_time
                 else:
@@ -145,9 +130,9 @@ while cap.isOpened():
                 swipe_start_x = None
                 
                 if current_time - last_action_time > COOLDOWN:
-                    spotify_state = get_spotify_state()
+                    spotify_state = sys_ctrl.get_spotify_state()
                     if spotify_state == "playing":
-                        subprocess.run("osascript -e 'tell application \"Spotify\" to pause'", shell=True)
+                        sys_ctrl.pause()
                         status = "PAUSING..."
                         last_action_time = current_time
             else:

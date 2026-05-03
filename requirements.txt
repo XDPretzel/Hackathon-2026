@@ -5,3 +5,5 @@ pyautogui
 customtkinter
 pystray
 pillow
+pycaw
+comtypes
