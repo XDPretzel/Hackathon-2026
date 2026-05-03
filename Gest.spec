@@ -1,11 +1,18 @@
 # -*- mode: python ; coding: utf-8 -*-
 
 
+import os
+import customtkinter
+import mediapipe
+
+ctk_path = os.path.dirname(customtkinter.__file__)
+mp_path = os.path.dirname(mediapipe.__file__)
+
 a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('/Users/rossbaldwin/Desktop/Hackathon-2026/.venv/lib/python3.11/site-packages/customtkinter', 'customtkinter'), ('/Users/rossbaldwin/Desktop/Hackathon-2026/.venv/lib/python3.11/site-packages/mediapipe', 'mediapipe')],
+    datas=[(ctk_path, 'customtkinter'), (mp_path, 'mediapipe')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

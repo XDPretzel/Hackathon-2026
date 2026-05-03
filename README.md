@@ -13,8 +13,13 @@ Gest is a premium, gesture-based media controller for macOS and Windows. It allo
 
 ### Running the Standalone App (macOS)
 1.  Navigate to the `dist/` folder.
-2.  Launch **`Gest.app`**.
-3.  **Permissions:** When prompted, grant the app access to your **Camera** and **Accessibility** features. (Accessibility is required for the app to send media keys like Play/Pause to the system).
+2.  Double-click **`Gest.app`**.
+3.  **Permissions:** Grant **Camera** and **Accessibility** access when prompted.
+
+### 🪟 On Windows
+1.  Navigate to the `dist/Gest/` folder.
+2.  Double-click **`Gest.exe`**.
+3.  **Permissions:** Allow the app through your firewall if prompted for webcam access.
 
 ### 🛠️ Running from Source
 If you want to run the code manually or contribute:
