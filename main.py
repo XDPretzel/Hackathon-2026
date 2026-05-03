@@ -31,74 +31,127 @@ ctk.set_default_color_theme("dark-blue")
 class SettingsWindow(ctk.CTkToplevel):
     def __init__(self, parent):
         super().__init__(parent)
-        self.title("Settings")
-        self.geometry("300x300")
-        self.configure(fg_color="#1a1a1a")
+        self.title("Configuration")
+        self.geometry("340x400")
+        self.configure(fg_color="#0f0f0f")
         self.parent = parent
         
-        # Elements
-        ctk.CTkLabel(self, text="Media Source:").pack(pady=(20,0))
-        ctk.CTkComboBox(self, values=["System Default", "Spotify", "YouTube"]).pack()
+        # Ensure window is on top
+        self.attributes("-topmost", True)
+        self.after(10, self.lift)
+        self.focus_force()
+
+        # Header
+        ctk.CTkLabel(self, text="PREFERENCES", font=("Segoe UI", 14, "bold"), text_color="#555555").pack(pady=(20, 10))
         
-        ctk.CTkLabel(self, text="Webcam:").pack(pady=(20,0))
-        ctk.CTkComboBox(self, values=["Camera 0", "Camera 1"]).pack()
+        # Container
+        container = ctk.CTkFrame(self, fg_color="#181818", corner_radius=15)
+        container.pack(fill="both", expand=True, padx=20, pady=(0, 20))
+
+        # Media Source
+        ctk.CTkLabel(container, text="Media Control Source", font=("Segoe UI", 12)).pack(pady=(20, 5))
+        self.source_box = ctk.CTkComboBox(container, values=["System Default", "Spotify", "YouTube"], 
+                                          fg_color="#222222", border_color="#333333", button_color="#333333")
+        self.source_box.pack(padx=20, fill="x")
         
+        # Camera Source
+        ctk.CTkLabel(container, text="Input Device", font=("Segoe UI", 12)).pack(pady=(15, 5))
+        self.cam_box = ctk.CTkComboBox(container, values=["Camera 0", "Camera 1"],
+                                       fg_color="#222222", border_color="#333333", button_color="#333333")
+        self.cam_box.pack(padx=20, fill="x")
+        
+        # Tray Setting
         self.tray_var = ctk.BooleanVar(value=parent.minimize_to_tray)
-        cb = ctk.CTkCheckBox(self, text="Minimize to tray", variable=self.tray_var, 
-                             command=self.update_tray_setting)
-        cb.pack(pady=30)
+        ctk.CTkCheckBox(container, text="Minimize to System Tray", variable=self.tray_var, 
+                        font=("Segoe UI", 12), command=self.update_tray_setting,
+                        fg_color="#00aa00", hover_color="#008800").pack(pady=30)
         
+        # Close Button
+        ctk.CTkButton(self, text="Done", command=self.destroy, fg_color="#333333", hover_color="#444444").pack(pady=(0, 20))
+
     def update_tray_setting(self):
         self.parent.minimize_to_tray = self.tray_var.get()
 
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("Gesture Control")
-        self.geometry("400x500")
-        self.configure(fg_color="#121212")  # Flat black
+        self.title("Gest")
+        self.geometry("450x650")
+        self.configure(fg_color="#0a0a0a")  # Deep onyx
 
+        # Core State
         self.is_tracking = False
         self.is_camera_on = False
-        self.minimize_to_tray = False # Changed to False so the app fully closes when clicking X
+        self.minimize_to_tray = True 
         self.tray_icon = None
         self.cap = None
 
+        # Logic State
         self.sys_ctrl = SystemController()
         self.COOLDOWN = 1.5
         self.SWIPE_SETTLE_TIME = 0.3
         self.SWIPE_THRESHOLD = 0.3
-        
         self.last_action_time = 0
-        self.status = "READY"
+        self.status = "SYSTEM STANDBY"
         self.current_vol = self.sys_ctrl.get_system_volume()
         
-        # State tracking for gestures
         self.is_adjusting_vol = False
         self.vol_start_y = 0
         self.vol_start_level = 0
         self.win_is_playing = False
-        
         self.palm_start_time = 0
         self.is_swiping = False
         self.swipe_start_x = None
 
-        # Top Bar (Settings & Camera Toggle)
-        top_frame = ctk.CTkFrame(self, fg_color="transparent")
-        top_frame.pack(fill="x", padx=10, pady=10)
+        # --- UI LAYOUT ---
         
-        ctk.CTkButton(top_frame, text="Settings", width=80, command=self.open_settings).pack(side="left")
-        self.cam_btn = ctk.CTkButton(top_frame, text="Show Camera", width=100, command=self.toggle_camera)
-        self.cam_btn.pack(side="right")
+        # Header Area
+        self.header = ctk.CTkFrame(self, fg_color="transparent")
+        self.header.pack(fill="x", padx=30, pady=(30, 10))
+        
+        self.title_label = ctk.CTkLabel(self.header, text="GEST", font=("Segoe UI", 24, "bold"), text_color="#ffffff")
+        self.title_label.pack(side="left")
+        
+        self.settings_btn = ctk.CTkButton(self.header, text="⚙", width=40, height=40, corner_radius=20,
+                                          fg_color="#181818", hover_color="#222222", font=("Segoe UI", 18),
+                                          command=self.open_settings)
+        self.settings_btn.pack(side="right")
 
-        # Camera Placeholder (Hidden by default)
-        self.cam_label = ctk.CTkLabel(self, text="[Camera Feed]", height=200, fg_color="#222222")
+        # Main Interaction Area
+        self.content_frame = ctk.CTkFrame(self, fg_color="transparent")
+        self.content_frame.pack(fill="both", expand=True, padx=30)
 
-        # Center Power Button
-        self.power_btn = ctk.CTkButton(self, text="⏻", width=200, height=200, corner_radius=100,
-                                       font=("Segoe UI", 80, "bold"), fg_color="#333333", hover_color="#444444",
+        # Camera Container (Stylized)
+        self.cam_container = ctk.CTkFrame(self.content_frame, fg_color="#121212", corner_radius=20, border_width=1, border_color="#222222")
+        self.cam_label = ctk.CTkLabel(self.cam_container, text="CAMERA INACTIVE", font=("Segoe UI", 10), text_color="#444444")
+        self.cam_label.pack(fill="both", expand=True, padx=2, pady=2)
+        # Hidden by default, shown via toggle_camera
+        
+        # Power Button Container
+        self.button_container = ctk.CTkFrame(self.content_frame, fg_color="transparent")
+        self.button_container.pack(expand=True)
+
+        self.power_btn = ctk.CTkButton(self.button_container, text="⏻", width=180, height=180, corner_radius=90,
+                                       font=("Segoe UI", 70), fg_color="#181818", hover_color="#222222",
+                                       border_width=2, border_color="#333333",
                                        command=self.toggle_tracking)
-        self.power_btn.pack(expand=True)
+        self.power_btn.pack()
+
+        self.status_label = ctk.CTkLabel(self.button_container, text=self.status, font=("Segoe UI", 12, "bold"), 
+                                         text_color="#666666", pady=20)
+        self.status_label.pack()
+
+        # Bottom Bar
+        self.bottom_bar = ctk.CTkFrame(self, fg_color="#0f0f0f", height=60, corner_radius=0)
+        self.bottom_bar.pack(fill="x", side="bottom")
+        
+        self.cam_toggle_btn = ctk.CTkButton(self.bottom_bar, text="VIEW FEED", font=("Segoe UI", 11, "bold"),
+                                            fg_color="transparent", hover_color="#181818", text_color="#888888",
+                                            command=self.toggle_camera)
+        self.cam_toggle_btn.pack(side="left", padx=20, pady=10)
+        
+        self.vol_display = ctk.CTkLabel(self.bottom_bar, text=f"VOL: {self.current_vol}%", font=("Segoe UI", 11, "bold"), text_color="#444444")
+        self.vol_display.pack(side="right", padx=20)
 
         self.protocol('WM_DELETE_WINDOW', self.on_close)
         
@@ -108,15 +161,14 @@ class App(ctk.CTk):
     def toggle_tracking(self):
         self.is_tracking = not self.is_tracking
         if self.is_tracking:
-            self.power_btn.configure(fg_color="#00aa00", hover_color="#00cc00")
-            self.status = "READY"
-            # Start camera if not already running
-            if not self.cap:
-                self.cap = cv2.VideoCapture(0)
-                self.update_camera()
+            self.power_btn.configure(fg_color="#0a2a0a", border_color="#00ff66", text_color="#00ff66", hover_color="#0f3f0f")
+            self.status = "SYSTEM ACTIVE"
+            self.status_label.configure(text_color="#00ff66")
+            self.ensure_camera_active()
         else:
-            self.power_btn.configure(fg_color="#333333", hover_color="#444444")
-            self.status = "IDLE"
+            self.power_btn.configure(fg_color="#181818", border_color="#333333", text_color="#ffffff", hover_color="#222222")
+            self.status = "SYSTEM STANDBY"
+            self.status_label.configure(text_color="#666666")
             # Stop camera only if display is also off
             if not self.is_camera_on and self.cap:
                 self.cap.release()
@@ -125,25 +177,22 @@ class App(ctk.CTk):
     def toggle_camera(self):
         self.is_camera_on = not self.is_camera_on
         if self.is_camera_on:
-            self.cam_btn.configure(text="Hide Camera")
-            self.cam_label.pack(after=self.power_btn, pady=20, fill="x", padx=20)
-            
-            # Start OpenCV camera if not already running
-            if not self.cap:
-                self.cap = cv2.VideoCapture(0)
-                self.update_camera()
+            self.cam_toggle_btn.configure(text="CLOSE FEED", text_color="#ffffff")
+            self.cam_container.pack(before=self.button_container, pady=(0, 20), fill="x")
+            self.ensure_camera_active()
         else:
-            self.cam_btn.configure(text="Show Camera")
-            self.cam_label.pack_forget()
+            self.cam_toggle_btn.configure(text="VIEW FEED", text_color="#888888")
+            self.cam_container.pack_forget()
             
             # Stop OpenCV camera only if tracking is also off
             if not self.is_tracking and self.cap:
                 self.cap.release()
                 self.cap = None
-            self.cam_label.configure(image=None, text="[Camera Feed]")
+            self.cam_label.configure(image=None, text="CAMERA INACTIVE")
 
     def update_camera(self):
         if (self.is_camera_on or self.is_tracking) and self.cap and self.cap.isOpened():
+            self._loop_active = True
             ret, frame = self.cap.read()
             if ret:
                 frame = cv2.flip(frame, 1)
@@ -246,6 +295,10 @@ class App(ctk.CTk):
                                     if current_time - self.last_action_time > 1.0:
                                         self.status = "TRACKING..."
                 
+                # Update Status Labels
+                self.status_label.configure(text=self.status)
+                self.vol_display.configure(text=f"VOL: {self.current_vol}%")
+
                 if self.is_camera_on:
                     draw_status(frame, self.status)
                     
@@ -254,11 +307,21 @@ class App(ctk.CTk):
                     img = Image.fromarray(frame_rgb)
                     
                     # Create CTkImage and update label
-                    ctk_img = ctk.CTkImage(light_image=img, dark_image=img, size=(320, 240))
+                    ctk_img = ctk.CTkImage(light_image=img, dark_image=img, size=(380, 240))
                     self.cam_label.configure(image=ctk_img, text="")
             
             # Schedule the next frame update in 15ms
             self.after(15, self.update_camera)
+        else:
+            self._loop_active = False
+
+    def ensure_camera_active(self):
+        """Helper to ensure camera is opened and loop is running."""
+        if not self.cap or not self.cap.isOpened():
+            self.cap = cv2.VideoCapture(0)
+        
+        if not getattr(self, "_loop_active", False):
+            self.update_camera()
 
     def open_settings(self):
         SettingsWindow(self)
