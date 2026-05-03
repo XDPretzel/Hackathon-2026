@@ -255,19 +255,21 @@ class App(ctk.CTk):
                                     
                                     # Asymmetric sensitivity: Back swipe is less sensitive (0.4 vs 0.25)
                                     is_skip = delta_x > self.SWIPE_THRESHOLD
-                                    is_prev = delta_x < -0.4 
+                                    is_prev = delta_x < -0.5
 
                                     if is_skip or is_prev:
                                         if current_time - self.last_action_time > self.COOLDOWN:
                                             if is_skip:
                                                 self.sys_ctrl.skip_track()
                                                 self.status = "SKIPPING >>"
-                                            else:
+                                                self.last_action_time = current_time
+                                                self.swipe_start_x = current_x 
+                                            elif is_prev and (current_time - self.palm_start_time > 0.6):
                                                 self.sys_ctrl.previous_track()
                                                 self.status = "<< PREVIOUS"
                                             
-                                            self.last_action_time = current_time
-                                            self.swipe_start_x = current_x 
+                                                self.last_action_time = current_time
+                                                self.swipe_start_x = current_x 
                                     
                                     # Also check for "Play" while holding palm
                                     elif current_time - self.last_action_time > self.COOLDOWN:
