@@ -26,9 +26,23 @@ def previous_gesture():
     pass
 
 
-#=============== Volume Up Gesture detection ===============
-def volume_up_gesture():
-    pass
+#=============== Volume Gesture detection ===============
+def is_pinching(landmarks):
+    """Detects if Thumb and Index finger are touching (Pinch)"""
+    # 4 = Thumb Tip, 8 = Index Tip
+    thumb_tip = landmarks.landmark[4]
+    index_tip = landmarks.landmark[8]
+    
+    # Calculate Euclidean distance
+    distance = ((thumb_tip.x - index_tip.x)**2 + (thumb_tip.y - index_tip.y)**2)**0.5
+    
+    # Threshold for a pinch (found via testing)
+    return distance < 0.05
+
+def get_hand_y(landmarks):
+    """Returns the vertical position of the hand (using the wrist)"""
+    # 0 = Wrist
+    return landmarks.landmark[0].y
 
 #=============== Volume Down Gesture detection ===============
 def volume_down_gesture():
