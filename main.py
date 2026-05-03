@@ -70,12 +70,12 @@ try:
 
             # Logic Gesture State
             self.sys_ctrl = SystemController()
-            self.COOLDOWN = 1.5
-
+            self.COOLDOWN = 0.8
+            
             #SWIPING SENSITIVITY 
             self.SWIPE_SETTLE_TIME = 0.2
             self.SWIPE_THRESHOLD = 0.25
-
+            
             self.last_action_time = 0
             self.status = "SYSTEM STANDBY"
             self.current_vol = self.sys_ctrl.get_system_volume()
@@ -247,7 +247,7 @@ try:
                                         
                                         # Asymmetric sensitivity: Back swipe is less sensitive (0.4 vs 0.25)
                                         is_skip = delta_x > self.SWIPE_THRESHOLD
-                                        is_prev = delta_x < -0.5
+                                        is_prev = delta_x < -self.SWIPE_THRESHOLD
 
                                         # Trigger Skip (Right) or Previous (Left)
                                         if is_skip or is_prev:
@@ -258,7 +258,7 @@ try:
                                                     self.status = "SKIPPING >>"
                                                     self.last_action_time = current_time
                                                     self.swipe_start_x = current_x 
-                                                elif is_prev and (current_time - self.palm_start_time > 0.6):
+                                                elif is_prev and (current_time - self.palm_start_time > 0.4):
                                                     print("DEBUG: Triggering Previous Track")
                                                     self.sys_ctrl.previous_track()
                                                     self.status = "<< PREVIOUS"

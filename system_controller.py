@@ -118,20 +118,24 @@ class SystemController:
 
     # --- Media Target Detection ---
     def get_active_media_target(self):
-        """Returns 'youtube' if YouTube is active in Chrome, otherwise 'spotify'"""
+        """Returns 'youtube', 'spotify', or 'system'"""
         if self.is_mac:
             try:
-                # Check if Chrome is running first
+                # Check Chrome/YouTube
                 cmd_chrome = "osascript -e 'tell application \"System Events\" to count (every process whose name is \"Google Chrome\")'"
                 if int(subprocess.check_output(cmd_chrome, shell=True).decode().strip()) > 0:
-                    # Get URL of active tab
                     cmd_url = "osascript -e 'tell application \"Google Chrome\" to get URL of active tab of front window'"
                     url = subprocess.check_output(cmd_url, shell=True, stderr=subprocess.DEVNULL).decode().strip()
                     if "youtube.com/watch" in url:
                         return "youtube"
+                
+                # Check Spotify
+                cmd_spotify = "osascript -e 'tell application \"System Events\" to count (every process whose name is \"Spotify\")'"
+                if int(subprocess.check_output(cmd_spotify, shell=True).decode().strip()) > 0:
+                    return "spotify"
             except:
                 pass
-        return "spotify"
+        return "system"
 
     # --- Media Controls ---
     def skip_track(self):
@@ -140,6 +144,8 @@ class SystemController:
             if target == "youtube":
                 # Shift+N skips to the next video on YouTube
                 subprocess.run("osascript -e 'tell application \"System Events\" to tell process \"Google Chrome\" to keystroke \"N\" using shift down'", shell=True)
+            elif target == "spotify":
+                subprocess.run("osascript -e 'tell application \"Spotify\" to next track'", shell=True)
             else:
                 self._mac_media_key(17) # NX_KEYTYPE_NEXT
         else:
@@ -151,6 +157,8 @@ class SystemController:
             if target == "youtube":
                 # Shift+P goes to the previous video on YouTube
                 subprocess.run("osascript -e 'tell application \"System Events\" to tell process \"Google Chrome\" to keystroke \"P\" using shift down'", shell=True)
+            elif target == "spotify":
+                subprocess.run("osascript -e 'tell application \"Spotify\" to previous track'", shell=True)
             else:
                 self._mac_media_key(18) # NX_KEYTYPE_PREVIOUS
         else:
@@ -161,6 +169,8 @@ class SystemController:
         if self.is_mac:
             if target == "youtube":
                 self._mac_youtube_control("toggle")
+            elif target == "spotify":
+                subprocess.run("osascript -e 'tell application \"Spotify\" to playpause'", shell=True)
             else:
                 self._mac_media_key(16) # NX_KEYTYPE_PLAY
         else:
@@ -171,6 +181,8 @@ class SystemController:
         if self.is_mac:
             if target == "youtube":
                 self._mac_youtube_control("play")
+            elif target == "spotify":
+                subprocess.run("osascript -e 'tell application \"Spotify\" to play'", shell=True)
             else:
                 self._mac_media_key(16)
         else:
@@ -181,6 +193,8 @@ class SystemController:
         if self.is_mac:
             if target == "youtube":
                 self._mac_youtube_control("pause")
+            elif target == "spotify":
+                subprocess.run("osascript -e 'tell application \"Spotify\" to pause'", shell=True)
             else:
                 self._mac_media_key(16)
         else:
