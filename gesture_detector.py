@@ -17,13 +17,6 @@ def pause_gesture(landmarks):
     return all([landmarks.landmark[tip].y > landmarks.landmark[tip-2].y for tip in [8, 12, 16, 20]])
 
 
-def is_pointing_up(landmarks):
-    """Detects if only the Index finger is pointing up (Number One gesture)"""
-    # Index extended (tip y < joint y)
-    index_up = landmarks.landmark[8].y < landmarks.landmark[6].y
-    # Middle, Ring, Pinky folded down (tip y > joint y)
-    others_folded = all([landmarks.landmark[tip].y > landmarks.landmark[tip-2].y for tip in [12, 16, 20]])
-    return index_up and others_folded
 
 def get_hand_x(landmarks):
     """Returns the horizontal position of the hand (using the index tip)"""

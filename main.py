@@ -18,7 +18,7 @@ from system_controller import SystemController # native macos/windows media cont
 #====== Our Gesture Detection Logic ========
 from gesture_detector import ( # custom gesture recognition logic
     play_gesture, pause_gesture, skip_gesture, previous_gesture, 
-    is_pinching, get_hand_y, is_pointing_up, get_hand_x
+    is_pinching, get_hand_y, get_hand_x
 )
 
 # Initialize MediaPipe
