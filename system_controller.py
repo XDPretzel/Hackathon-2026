@@ -47,46 +47,53 @@ class SystemController:
             if self.has_pycaw:
                 self.volume.SetMasterVolumeLevelScalar(volume_level / 100.0, None)
 
+    def _mac_media_key(self, key_code):
+        try:
+            import AppKit
+            import Quartz
+            NX_SYSDEFINED = 14
+            def doKey(down):
+                ev = AppKit.NSEvent.otherEventWithType_location_modifierFlags_timestamp_windowNumber_context_subtype_data1_data2_(
+                    NX_SYSDEFINED, (0, 0), 0xa00 if down else 0xb00, 0, 0, None, 8,
+                    (key_code << 16) | ((0xa if down else 0xb) << 8), -1
+                )
+                Quartz.CGEventPost(0, ev.CGEvent())
+            doKey(True)
+            doKey(False)
+        except Exception as e:
+            print(f"Failed to send Mac media key: {e}")
+
     # --- Media Controls ---
     def skip_track(self):
         if self.is_mac:
-            subprocess.run("osascript -e 'tell application \"Spotify\" to next track'", shell=True)
-        elif self.is_windows:
+            self._mac_media_key(17) # NX_KEYTYPE_NEXT
+        else:
             pyautogui.press('nexttrack')
 
     def previous_track(self):
         if self.is_mac:
-            subprocess.run("osascript -e 'tell application \"Spotify\" to previous track'", shell=True)
-        elif self.is_windows:
+            self._mac_media_key(18) # NX_KEYTYPE_PREVIOUS
+        else:
             pyautogui.press('prevtrack')
 
     def toggle_play_pause(self):
         if self.is_mac:
-            subprocess.run("osascript -e 'tell application \"Spotify\" to playpause'", shell=True)
-        elif self.is_windows:
+            self._mac_media_key(16) # NX_KEYTYPE_PLAY
+        else:
             pyautogui.press('playpause')
 
     def play(self):
         if self.is_mac:
-            subprocess.run("osascript -e 'tell application \"Spotify\" to play'", shell=True)
-        elif self.is_windows:
-            # Windows media keys toggle 
+            self._mac_media_key(16)
+        else:
             pyautogui.press('playpause')
 
     def pause(self):
         if self.is_mac:
-            subprocess.run("osascript -e 'tell application \"Spotify\" to pause'", shell=True)
-        elif self.is_windows:
-           # Windows media keys toggle 
+            self._mac_media_key(16)
+        else:
             pyautogui.press('playpause')
 
     def get_spotify_state(self):
-        if self.is_mac:
-            try:
-                cmd = "osascript -e 'tell application \"Spotify\" to player state as string'"
-                return subprocess.check_output(cmd, shell=True).decode().strip().lower()
-            except:
-                return "unknown"
-        elif self.is_windows:
-            #return "unknown" and rely on the toggle behavior
-            return "unknown"
+        # We can no longer reliably get the state of global media
+        return "unknown"

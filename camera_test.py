@@ -61,7 +61,7 @@ while cap.isOpened():
             if detect_heart_gesture(results.multi_hand_landmarks):
                 if current_time - last_action_time > COOLDOWN:
                     pyautogui.hotkey('command', 'l') 
-                    status = "SONG SAVED ❤️"
+                    status = "SONG SAVED"
                     last_action_time = current_time
 
         # 2. INDIVIDUAL HAND GESTURES
