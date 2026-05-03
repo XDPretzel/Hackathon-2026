@@ -4,13 +4,20 @@ import pyautogui
 import time
 import subprocess
 from ui_utils import draw_status, draw_volume_bar
-from gesture_detector import play_gesture, pause_gesture, skip_gesture, previous_gesture, is_pinching, get_hand_y
+from gesture_detector import (
+    play_gesture, pause_gesture, skip_gesture, previous_gesture, 
+    is_pinching, get_hand_y, detect_heart_gesture
+)
 
 # Initialize MediaPipe
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
-hands = mp_hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.7)
-
+hands = mp_hands.Hands(
+    static_image_mode=False,
+    max_num_hands=2,
+    min_detection_confidence=0.7, 
+    min_tracking_confidence=0.7
+)
 def get_system_volume():
     """Get current Computer volume (0-100)"""
     try:
@@ -47,6 +54,17 @@ while cap.isOpened():
     current_time = time.time()
 
     if results.multi_hand_landmarks:
+        # 1. CHECK FOR DUAL-HAND HEART GESTURE FIRST
+        if len(results.multi_hand_landmarks) == 2:
+            if detect_heart_gesture(results.multi_hand_landmarks):
+                if current_time - last_action_time > COOLDOWN:
+                    print("HEART GESTURE: Saving Song")
+                    # Spotify 'Like' shortcut is Cmd+L (on Mac, pyautogui uses 'command')
+                    pyautogui.hotkey('command', 'l') 
+                    status = "SONG SAVED"
+                    last_action_time = current_time
+
+        # 2. PROCESS INDIVIDUAL HAND GESTURES
         for hand_landmarks in results.multi_hand_landmarks:
             mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 
@@ -79,7 +97,8 @@ while cap.isOpened():
                     status = f"DETECTED: {gesture}"
                     last_action_time = current_time
                 elif not gesture and (current_time - last_action_time > 1.0):
-                    status = "TRACKING..."
+                    if "SAVED" not in status: # Don't clear the Heart status too fast
+                        status = "TRACKING..."
 
     # Draw the HUD
     draw_status(frame, status)

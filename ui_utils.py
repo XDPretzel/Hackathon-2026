@@ -14,7 +14,12 @@ def draw_status(frame, status_text):
     font = cv2.FONT_HERSHEY_SIMPLEX
     font_scale = 1
     font_thickness = 2
-    color = (0, 255, 0)  # Green in BGR
+    
+    # Use Red for Heart detection, Green for others
+    if "SAVED" in status_text:
+        color = (0, 0, 255) # Red in BGR
+    else:
+        color = (0, 255, 0) # Green in BGR
     
     # Get text size to position it correctly from the right edge
     text_size = cv2.getTextSize(status_text, font, font_scale, font_thickness)[0]
