@@ -28,49 +28,6 @@ hands = mp_hands.Hands(
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("dark-blue")
 
-class SettingsWindow(ctk.CTkToplevel):
-    def __init__(self, parent):
-        super().__init__(parent)
-        self.title("Configuration")
-        self.geometry("340x400")
-        self.configure(fg_color="#0f0f0f")
-        self.parent = parent
-        
-        # Ensure window is on top
-        self.attributes("-topmost", True)
-        self.after(10, self.lift)
-        self.focus_force()
-
-        # Header
-        ctk.CTkLabel(self, text="PREFERENCES", font=("Segoe UI", 14, "bold"), text_color="#555555").pack(pady=(20, 10))
-        
-        # Container
-        container = ctk.CTkFrame(self, fg_color="#181818", corner_radius=15)
-        container.pack(fill="both", expand=True, padx=20, pady=(0, 20))
-
-        # Media Source
-        ctk.CTkLabel(container, text="Media Control Source", font=("Segoe UI", 12)).pack(pady=(20, 5))
-        self.source_box = ctk.CTkComboBox(container, values=["System Default", "Spotify", "YouTube"], 
-                                          fg_color="#222222", border_color="#333333", button_color="#333333")
-        self.source_box.pack(padx=20, fill="x")
-        
-        # Camera Source
-        ctk.CTkLabel(container, text="Input Device", font=("Segoe UI", 12)).pack(pady=(15, 5))
-        self.cam_box = ctk.CTkComboBox(container, values=["Camera 0", "Camera 1"],
-                                       fg_color="#222222", border_color="#333333", button_color="#333333")
-        self.cam_box.pack(padx=20, fill="x")
-        
-        # Tray Setting
-        self.tray_var = ctk.BooleanVar(value=parent.minimize_to_tray)
-        ctk.CTkCheckBox(container, text="Minimize to System Tray", variable=self.tray_var, 
-                        font=("Segoe UI", 12), command=self.update_tray_setting,
-                        fg_color="#00aa00", hover_color="#008800").pack(pady=30)
-        
-        # Close Button
-        ctk.CTkButton(self, text="Done", command=self.destroy, fg_color="#333333", hover_color="#444444").pack(pady=(0, 20))
-
-    def update_tray_setting(self):
-        self.parent.minimize_to_tray = self.tray_var.get()
 
 class App(ctk.CTk):
     def __init__(self):
@@ -115,11 +72,6 @@ class App(ctk.CTk):
         
         self.title_label = ctk.CTkLabel(self.header, text="GEST", font=("Segoe UI", 24, "bold"), text_color="#ffffff")
         self.title_label.pack(side="left")
-        
-        self.settings_btn = ctk.CTkButton(self.header, text="⚙", width=40, height=40, corner_radius=20,
-                                          fg_color="#181818", hover_color="#222222", font=("Segoe UI", 18),
-                                          command=self.open_settings)
-        self.settings_btn.pack(side="right")
 
         # Main Interaction Area
         self.content_frame = ctk.CTkFrame(self, fg_color="transparent")
@@ -154,8 +106,10 @@ class App(ctk.CTk):
                                             command=self.toggle_camera)
         self.cam_toggle_btn.pack(side="left", padx=20, pady=10)
         
-        self.vol_display = ctk.CTkLabel(self.bottom_bar, text=f"VOL: {self.current_vol}%", font=("Segoe UI", 11, "bold"), text_color="#444444")
-        self.vol_display.pack(side="right", padx=20)
+        self.minimize_btn = ctk.CTkButton(self.bottom_bar, text="MINIMIZE", font=("Segoe UI", 11, "bold"),
+                                           fg_color="transparent", hover_color="#181818", text_color="#888888",
+                                           command=self.on_close)
+        self.minimize_btn.pack(side="right", padx=20)
 
         self.protocol('WM_DELETE_WINDOW', self.on_close)
         
@@ -304,7 +258,6 @@ class App(ctk.CTk):
                 
                 # Update Status Labels
                 self.status_label.configure(text=self.status)
-                self.vol_display.configure(text=f"VOL: {self.current_vol}%")
 
                 if self.is_camera_on:
                     draw_status(frame, self.status)
@@ -330,8 +283,6 @@ class App(ctk.CTk):
         if not getattr(self, "_loop_active", False):
             self.update_camera()
 
-    def open_settings(self):
-        SettingsWindow(self)
 
     def on_close(self):
         if self.minimize_to_tray:
