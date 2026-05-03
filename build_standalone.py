@@ -22,6 +22,8 @@ params = [
     f'--add-data={mp_path}{os.pathsep}mediapipe',
     '--clean',
     '--noconfirm',
+    '--osx-bundle-identifier=com.gest.media.controller',
+    '--argv-emulation',
 ]
 
 # Run PyInstaller

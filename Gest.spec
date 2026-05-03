@@ -28,7 +28,7 @@ exe = EXE(
     upx=True,
     console=False,
     disable_windowed_traceback=False,
-    argv_emulation=False,
+    argv_emulation=True,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
@@ -46,5 +46,5 @@ app = BUNDLE(
     coll,
     name='Gest.app',
     icon=None,
-    bundle_identifier=None,
+    bundle_identifier='com.gest.media.controller',
 )

@@ -1,3 +1,4 @@
+#========= UI and Background Tray Process =========
 import customtkinter as ctk # modern gui library
 import sys
 import traceback
