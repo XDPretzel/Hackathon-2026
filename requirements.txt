@@ -7,3 +7,5 @@ pystray
 pillow
 pycaw
 comtypes
+pyobjc-framework-Quartz
+pyobjc-framework-Cocoa

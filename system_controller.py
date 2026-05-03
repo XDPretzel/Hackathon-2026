@@ -91,14 +91,40 @@ class SystemController:
             doKey(False)
         except Exception as e:
             print(f"Failed to send Mac media key: {e}")
+            # Fallback to pyautogui which might work if permissions are different
+            key_map = {16: 'playpause', 17: 'nexttrack', 18: 'prevtrack'}
+            if key_code in key_map:
+                try:
+                    pyautogui.press(key_map[key_code])
+                except:
+                    pass
+
+    def _mac_youtube_control(self, action):
+        """Controls YouTube in Google Chrome via JavaScript/AppleScript"""
+        js_map = {
+            "toggle": "document.querySelector('.ytp-play-button').click()",
+            "play": "document.querySelector('video').play()",
+            "pause": "document.querySelector('video').pause()"
+        }
+        js = js_map.get(action)
+        if js:
+            cmd = f"osascript -e 'tell application \"Google Chrome\" to tell active tab of front window to execute javascript \"{js}\"'"
+            try:
+                subprocess.run(cmd, shell=True, stderr=subprocess.DEVNULL)
+                return True
+            except:
+                return False
+        return False
 
     # --- Media Target Detection ---
     def get_active_media_target(self):
         """Returns 'youtube' if YouTube is active in Chrome, otherwise 'spotify'"""
         if self.is_mac:
             try:
+                # Check if Chrome is running first
                 cmd_chrome = "osascript -e 'tell application \"System Events\" to count (every process whose name is \"Google Chrome\")'"
                 if int(subprocess.check_output(cmd_chrome, shell=True).decode().strip()) > 0:
+                    # Get URL of active tab
                     cmd_url = "osascript -e 'tell application \"Google Chrome\" to get URL of active tab of front window'"
                     url = subprocess.check_output(cmd_url, shell=True, stderr=subprocess.DEVNULL).decode().strip()
                     if "youtube.com/watch" in url:
@@ -112,7 +138,7 @@ class SystemController:
         target = self.get_active_media_target()
         if self.is_mac:
             if target == "youtube":
-                # Shift+N skips to the next video on YouTube (Requires Chrome to be focused)
+                # Shift+N skips to the next video on YouTube
                 subprocess.run("osascript -e 'tell application \"System Events\" to tell process \"Google Chrome\" to keystroke \"N\" using shift down'", shell=True)
             else:
                 self._mac_media_key(17) # NX_KEYTYPE_NEXT
@@ -131,20 +157,32 @@ class SystemController:
             pyautogui.press('prevtrack')
 
     def toggle_play_pause(self):
+        target = self.get_active_media_target()
         if self.is_mac:
-            self._mac_media_key(16) # NX_KEYTYPE_PLAY
+            if target == "youtube":
+                self._mac_youtube_control("toggle")
+            else:
+                self._mac_media_key(16) # NX_KEYTYPE_PLAY
         else:
             pyautogui.press('playpause')
 
     def play(self):
+        target = self.get_active_media_target()
         if self.is_mac:
-            self._mac_media_key(16)
+            if target == "youtube":
+                self._mac_youtube_control("play")
+            else:
+                self._mac_media_key(16)
         else:
             pyautogui.press('playpause')
 
     def pause(self):
+        target = self.get_active_media_target()
         if self.is_mac:
-            self._mac_media_key(16)
+            if target == "youtube":
+                self._mac_youtube_control("pause")
+            else:
+                self._mac_media_key(16)
         else:
             pyautogui.press('playpause')
 

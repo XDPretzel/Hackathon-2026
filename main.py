@@ -248,11 +248,13 @@ try:
                                         if is_skip or is_prev:
                                             if current_time - self.last_action_time > self.COOLDOWN:
                                                 if is_skip:
+                                                    print("DEBUG: Triggering Skip Track")
                                                     self.sys_ctrl.skip_track()
                                                     self.status = "SKIPPING >>"
                                                     self.last_action_time = current_time
                                                     self.swipe_start_x = current_x 
                                                 elif is_prev and (current_time - self.palm_start_time > 0.6):
+                                                    print("DEBUG: Triggering Previous Track")
                                                     self.sys_ctrl.previous_track()
                                                     self.status = "<< PREVIOUS"
                                                     self.last_action_time = current_time
@@ -262,6 +264,7 @@ try:
                                         elif current_time - self.last_action_time > self.COOLDOWN:
                                             spotify_state = self.sys_ctrl.get_spotify_state()
                                             if spotify_state == "paused" or (spotify_state == "unknown" and not self.win_is_playing):
+                                                print("DEBUG: Triggering Play")
                                                 self.sys_ctrl.play()
                                                 self.status = "RESUMING..."
                                                 self.win_is_playing = True
@@ -278,6 +281,7 @@ try:
                                     if current_time - self.last_action_time > self.COOLDOWN:
                                         spotify_state = self.sys_ctrl.get_spotify_state()
                                         if spotify_state == "playing" or (spotify_state == "unknown" and self.win_is_playing):
+                                            print("DEBUG: Triggering Pause")
                                             self.sys_ctrl.pause()
                                             self.status = "PAUSING..."
                                             self.win_is_playing = False
