@@ -1,0 +1,1 @@
+../../../../../../Resources/mediapipe/tasks/cc/metadata/python/__init__.py

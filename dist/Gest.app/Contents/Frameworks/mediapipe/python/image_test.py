@@ -1,0 +1,1 @@
+../../../Resources/mediapipe/python/image_test.py

@@ -1,0 +1,1 @@
+../../../Resources/mediapipe/python/solution_base_test.py

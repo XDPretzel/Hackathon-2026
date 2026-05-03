@@ -1,0 +1,1 @@
+../../../../../Resources/mediapipe/tasks/python/metadata/metadata_displayer_cli.py

@@ -2,9 +2,11 @@ import PyInstaller.__main__
 import os
 import sys
 import customtkinter
+import mediapipe
 
 # Get the path to customtkinter to include themes/assets
 ctk_path = os.path.dirname(customtkinter.__file__)
+mp_path = os.path.dirname(mediapipe.__file__)
 
 # Define the build command
 # --noconsole: Hide the terminal window on launch (GUI only)
@@ -17,7 +19,9 @@ params = [
     '--onedir',
     '--name=Gest',
     f'--add-data={ctk_path}{os.pathsep}customtkinter',
+    f'--add-data={mp_path}{os.pathsep}mediapipe',
     '--clean',
+    '--noconfirm',
 ]
 
 # Run PyInstaller

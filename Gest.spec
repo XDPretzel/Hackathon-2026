@@ -5,7 +5,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('/Users/rossbaldwin/Desktop/Hackathon-2026/.venv/lib/python3.11/site-packages/customtkinter', 'customtkinter')],
+    datas=[('/Users/rossbaldwin/Desktop/Hackathon-2026/.venv/lib/python3.11/site-packages/customtkinter', 'customtkinter'), ('/Users/rossbaldwin/Desktop/Hackathon-2026/.venv/lib/python3.11/site-packages/mediapipe', 'mediapipe')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
