@@ -1,15 +1,21 @@
-import customtkinter as ctk
-import threading
-from PIL import Image, ImageDraw
-import pystray
-import cv2
-import time
-import subprocess
-import mediapipe as mp
-import pyautogui
-from ui_utils import draw_status, draw_volume_bar
-from system_controller import SystemController
-from gesture_detector import (
+#========= UI and Background Tray Process =========
+import customtkinter as ctk # modern gui library
+from ui_utils import draw_status, draw_volume_bar # custom ui overlay utilities
+import threading # for running the background system tray process
+from PIL import Image, ImageDraw # image processing for camera and tray icons
+import pystray # system tray/menu bar integration
+
+#====== Computer Vision and Timing =========
+import cv2 # opencv for webcam capture and frame processing
+import time # timing for cooldowns and gesture settle delays
+
+#========== System Operations 
+import subprocess # to run apple script / system commands for media control
+import pyautogui # simulating keypresses and keyboard shortcuts
+from system_controller import SystemController # native macos/windows media control bridge
+
+#====== Our Gesture Detection Logic ========
+from gesture_detector import ( # custom gesture recognition logic
     play_gesture, pause_gesture, skip_gesture, previous_gesture, 
     is_pinching, get_hand_y, is_pointing_up, get_hand_x
 )
