@@ -41,9 +41,12 @@ def skip_gesture(landmarks, prev_x):
 
 #=============== Repeat Gesture detection ===============
 def repeat_gesture(landmarks):
-    """Detects Left Hand index finger pointing Right"""
-    # Index tip x > joint x (pointing right) & other fingers folded (tip y > joint y)
-    return landmarks.landmark[8].x > landmarks.landmark[6].x and all([landmarks.landmark[tip].y > landmarks.landmark[tip-2].y for tip in [12, 16, 20]])
+    """Detects Left Hand hitchhiker gesture (thumb pointing left)"""
+    # Thumb tip x < Thumb joint x (pointing left)
+    thumb_pointing_left = landmarks.landmark[4].x < landmarks.landmark[2].x
+    # Other fingers folded (tip y > joint y)
+    fingers_folded = all([landmarks.landmark[tip].y > landmarks.landmark[tip-2].y for tip in [8, 12, 16, 20]])
+    return thumb_pointing_left and fingers_folded
 
 #=============== Previous Gesture detection ===============
 def previous_gesture(landmarks, prev_x):
