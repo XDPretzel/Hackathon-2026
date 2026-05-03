@@ -18,6 +18,8 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.0.0</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Gest needs camera access for hand tracking media control.</string>
 	<key>NSHighResolutionCapable</key>
 	<true/>
 </dict>

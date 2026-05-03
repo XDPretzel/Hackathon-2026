@@ -47,4 +47,8 @@ app = BUNDLE(
     name='Gest.app',
     icon=None,
     bundle_identifier='com.gest.media.controller',
+    info_plist={
+        'NSCameraUsageDescription': 'Gest needs camera access for hand tracking media control.',
+        'NSHighResolutionCapable': True,
+    },
 )
