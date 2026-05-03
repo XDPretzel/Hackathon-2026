@@ -130,6 +130,11 @@ try:
                                                command=self.on_close)
             self.minimize_btn.pack(side="right", padx=20)
 
+            self.perm_btn = ctk.CTkButton(self.bottom_bar, text="?", width=30, font=("Segoe UI", 11, "bold"),
+                                          fg_color="transparent", hover_color="#181818", text_color="#444444",
+                                          command=self.request_permissions)
+            self.perm_btn.pack(side="right", padx=5)
+
             # Handle Close Event
             self.protocol('WM_DELETE_WINDOW', self.on_close)
             
@@ -263,7 +268,8 @@ try:
                                         # Also check for "Play" while holding palm
                                         elif current_time - self.last_action_time > self.COOLDOWN:
                                             spotify_state = self.sys_ctrl.get_spotify_state()
-                                            if spotify_state == "paused" or (spotify_state == "unknown" and not self.win_is_playing):
+                                            # If state is unknown, always attempt to play (or toggle)
+                                            if spotify_state == "paused" or spotify_state == "unknown":
                                                 print("DEBUG: Triggering Play")
                                                 self.sys_ctrl.play()
                                                 self.status = "RESUMING..."
@@ -280,7 +286,8 @@ try:
                                     
                                     if current_time - self.last_action_time > self.COOLDOWN:
                                         spotify_state = self.sys_ctrl.get_spotify_state()
-                                        if spotify_state == "playing" or (spotify_state == "unknown" and self.win_is_playing):
+                                        # If state is unknown, always attempt to pause
+                                        if spotify_state == "playing" or spotify_state == "unknown":
                                             print("DEBUG: Triggering Pause")
                                             self.sys_ctrl.pause()
                                             self.status = "PAUSING..."
@@ -370,6 +377,29 @@ try:
             if self.cap:
                 self.cap.release()
             self.quit()
+
+        def request_permissions(self):
+            """Triggers system prompts for Accessibility and Automation."""
+            self.status = "CHECKING PERMS..."
+            self.status_label.configure(text=self.status)
+            
+            # This osascript command triggers the 'Automation' permission prompt for Chrome
+            # and 'Accessibility' prompt for System Events.
+            cmd = "osascript -e 'tell application \"Google Chrome\" to get URL of active tab of front window'"
+            try:
+                subprocess.run(cmd, shell=True, capture_output=True)
+                self.status = "PERMS REQUESTED"
+            except:
+                self.status = "PERMS FAILED"
+            
+            # Also try to trigger Accessibility by using System Events
+            cmd_sys = "osascript -e 'tell application \"System Events\" to get name of first process'"
+            try:
+                subprocess.run(cmd_sys, shell=True, capture_output=True)
+            except:
+                pass
+            
+            self.status_label.configure(text=self.status)
 
     if __name__ == "__main__":
         try:
