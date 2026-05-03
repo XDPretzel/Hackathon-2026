@@ -8,6 +8,7 @@ import pystray # system tray/menu bar integration
 #====== Computer Vision and Timing =========
 import cv2 # opencv for webcam capture and frame processing
 import time # timing for cooldowns and gesture settle delays
+import mediapipe as mp
 
 #========== System Operations 
 import subprocess # to run apple script / system commands for media control

@@ -10,10 +10,21 @@ class SystemController:
         
         if self.is_windows:
             try:
-                from pycaw.pycaw import AudioUtilities
+                from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+                from ctypes import cast, POINTER
+                from comtypes import CLSCTX_ALL
+                import comtypes
                 
+                # Ensure COM is initialized for this thread
+                try:
+                    comtypes.CoInitialize()
+                except:
+                    pass
+                    
                 devices = AudioUtilities.GetSpeakers()
-                self.volume = devices.EndpointVolume
+                interface = devices.Activate(
+                    IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+                self.volume = cast(interface, POINTER(IAudioEndpointVolume))
                 self.has_pycaw = True
             except Exception as e:
                 self.has_pycaw = False
@@ -30,8 +41,11 @@ class SystemController:
                 return 50
         elif self.is_windows:
             if self.has_pycaw:
-                # pycaw returns a scalar 0.0 to 1.0
-                return int(self.volume.GetMasterVolumeLevelScalar() * 100)
+                try:
+                    # pycaw returns a scalar 0.0 to 1.0
+                    return int(self.volume.GetMasterVolumeLevelScalar() * 100)
+                except Exception as e:
+                    print(f"DEBUG: pycaw get_volume failed: {e}")
             return 50 # Fallback
         return 50
 
@@ -45,7 +59,22 @@ class SystemController:
                 pass
         elif self.is_windows:
             if self.has_pycaw:
-                self.volume.SetMasterVolumeLevelScalar(volume_level / 100.0, None)
+                try:
+                    self.volume.SetMasterVolumeLevelScalar(volume_level / 100.0, None)
+                except Exception as e:
+                    print(f"DEBUG: pycaw set_volume failed: {e}")
+                    # Fallback to keys if pycaw fails during operation
+                    if volume_level > self.get_system_volume():
+                        pyautogui.press('volumeup')
+                    elif volume_level < self.get_system_volume():
+                        pyautogui.press('volumedown')
+            else:
+                # If pycaw is not available at all, try to use media keys
+                # We can't set absolute volume, so we just nudge it
+                if volume_level > 50:
+                    pyautogui.press('volumeup')
+                else:
+                    pyautogui.press('volumedown')
 
     def _mac_media_key(self, key_code):
         try:
