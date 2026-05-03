@@ -63,16 +63,41 @@ class SystemController:
         except Exception as e:
             print(f"Failed to send Mac media key: {e}")
 
+    # --- Media Target Detection ---
+    def get_active_media_target(self):
+        """Returns 'youtube' if YouTube is active in Chrome, otherwise 'spotify'"""
+        if self.is_mac:
+            try:
+                cmd_chrome = "osascript -e 'tell application \"System Events\" to count (every process whose name is \"Google Chrome\")'"
+                if int(subprocess.check_output(cmd_chrome, shell=True).decode().strip()) > 0:
+                    cmd_url = "osascript -e 'tell application \"Google Chrome\" to get URL of active tab of front window'"
+                    url = subprocess.check_output(cmd_url, shell=True, stderr=subprocess.DEVNULL).decode().strip()
+                    if "youtube.com/watch" in url:
+                        return "youtube"
+            except:
+                pass
+        return "spotify"
+
     # --- Media Controls ---
     def skip_track(self):
+        target = self.get_active_media_target()
         if self.is_mac:
-            self._mac_media_key(17) # NX_KEYTYPE_NEXT
+            if target == "youtube":
+                # Shift+N skips to the next video on YouTube (Requires Chrome to be focused)
+                subprocess.run("osascript -e 'tell application \"System Events\" to tell process \"Google Chrome\" to keystroke \"N\" using shift down'", shell=True)
+            else:
+                self._mac_media_key(17) # NX_KEYTYPE_NEXT
         else:
             pyautogui.press('nexttrack')
 
     def previous_track(self):
+        target = self.get_active_media_target()
         if self.is_mac:
-            self._mac_media_key(18) # NX_KEYTYPE_PREVIOUS
+            if target == "youtube":
+                # Shift+P goes to the previous video on YouTube
+                subprocess.run("osascript -e 'tell application \"System Events\" to tell process \"Google Chrome\" to keystroke \"P\" using shift down'", shell=True)
+            else:
+                self._mac_media_key(18) # NX_KEYTYPE_PREVIOUS
         else:
             pyautogui.press('prevtrack')
 

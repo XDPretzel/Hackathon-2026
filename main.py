@@ -8,6 +8,7 @@ import subprocess
 import mediapipe as mp
 import pyautogui
 from ui_utils import draw_status, draw_volume_bar
+from system_controller import SystemController
 from gesture_detector import (
     play_gesture, pause_gesture, skip_gesture, previous_gesture, 
     is_pinching, get_hand_y, detect_heart_gesture, is_pointing_up, get_hand_x
@@ -22,18 +23,6 @@ hands = mp_hands.Hands(
     min_detection_confidence=0.7, 
     min_tracking_confidence=0.7
 )
-
-def get_system_volume():
-    """Get current Computer volume (0-100)"""
-    try:
-        cmd = "osascript -e 'output volume of (get volume settings)'"
-        return int(subprocess.check_output(cmd, shell=True).decode().strip())
-    except: return 50
-
-def set_system_volume(volume):
-    """Set Computer volume (0-100)"""
-    try: subprocess.run(f"osascript -e 'set volume output volume {volume}'", shell=True)
-    except: pass
 
 # Flat black theme
 ctk.set_appearance_mode("Dark")
@@ -71,15 +60,28 @@ class App(ctk.CTk):
 
         self.is_tracking = False
         self.is_camera_on = False
-        self.minimize_to_tray = True
+        self.minimize_to_tray = False # Changed to False so the app fully closes when clicking X
         self.tray_icon = None
         self.cap = None
 
+        self.sys_ctrl = SystemController()
         self.COOLDOWN = 1.5
+        self.SWIPE_SETTLE_TIME = 0.3
+        self.SWIPE_THRESHOLD = 0.3
+        
         self.last_action_time = 0
         self.status = "READY"
-        self.current_vol = get_system_volume()
-        self.prev_x = None
+        self.current_vol = self.sys_ctrl.get_system_volume()
+        
+        # State tracking for gestures
+        self.is_adjusting_vol = False
+        self.vol_start_y = 0
+        self.vol_start_level = 0
+        self.win_is_playing = False
+        
+        self.palm_start_time = 0
+        self.is_swiping = False
+        self.swipe_start_x = None
 
         # Top Bar (Settings & Camera Toggle)
         top_frame = ctk.CTkFrame(self, fg_color="transparent")
@@ -99,6 +101,9 @@ class App(ctk.CTk):
         self.power_btn.pack(expand=True)
 
         self.protocol('WM_DELETE_WINDOW', self.on_close)
+        
+        # Auto-start tracking when the app opens
+        self.after(500, self.toggle_tracking)
 
     def toggle_tracking(self):
         self.is_tracking = not self.is_tracking
@@ -162,45 +167,83 @@ class App(ctk.CTk):
                             if self.is_camera_on:
                                 mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 
-                            # --- VOLUME (PINCH) ---
+                            # --- VOLUME CONTROL (RELATIVE) ---
                             if is_pinching(hand_landmarks):
                                 hand_y = get_hand_y(hand_landmarks)
-                                new_vol = int((0.8 - hand_y) / 0.6 * 100)
-                                new_vol = max(0, min(100, new_vol))
-                                set_system_volume(new_vol)
+                                if not self.is_adjusting_vol:
+                                    self.is_adjusting_vol = True
+                                    self.vol_start_y = hand_y
+                                    self.vol_start_level = self.sys_ctrl.get_system_volume()
+                                
+                                delta_y = self.vol_start_y - hand_y
+                                change = int(delta_y / 0.4 * 100)
+                                new_vol = max(0, min(100, self.vol_start_level + change))
+                                self.sys_ctrl.set_system_volume(new_vol)
                                 self.current_vol = new_vol
                                 self.status = f"VOLUME: {self.current_vol}%"
                                 if self.is_camera_on:
                                     draw_volume_bar(frame, self.current_vol)
-                            
-                            # --- SWIPE SKIP/PREVIOUS (POINTING UP + MOTION) ---
-                            elif is_pointing_up(hand_landmarks):
-                                if skip_gesture(hand_landmarks, self.prev_x):
-                                    if current_time - self.last_action_time > self.COOLDOWN:
-                                        pyautogui.press('nexttrack')
-                                        self.status = "SKIPPING >>"
-                                        self.last_action_time = current_time
-                                elif previous_gesture(hand_landmarks, self.prev_x):
-                                    if current_time - self.last_action_time > self.COOLDOWN:
-                                        pyautogui.press('prevtrack')
-                                        self.status = "<< PREVIOUS"
-                                        self.last_action_time = current_time
-                                self.prev_x = get_hand_x(hand_landmarks)
-                            
+                                continue 
                             else:
-                                self.prev_x = None # Reset swipe tracking
+                                self.is_adjusting_vol = False
+
+                            # --- PALM GESTURES (WITH SETTLE DELAY) ---
+                            if play_gesture(hand_landmarks):
+                                if self.palm_start_time == 0:
+                                    self.palm_start_time = current_time
                                 
-                                # --- PLAYBACK (PLAY/PAUSE) ---
-                                gesture = None
-                                if play_gesture(hand_landmarks): gesture = "PLAY"
-                                elif pause_gesture(hand_landmarks): gesture = "PAUSE"
+                                # Wait for settle time before allowing swipe
+                                if current_time - self.palm_start_time > self.SWIPE_SETTLE_TIME:
+                                    current_x = get_hand_x(hand_landmarks)
+                                    
+                                    if not self.is_swiping:
+                                        self.is_swiping = True
+                                        self.swipe_start_x = current_x
+                                        self.status = "PALM READY"
+                                    
+                                    delta_x = current_x - self.swipe_start_x
+                                    
+                                    if abs(delta_x) > self.SWIPE_THRESHOLD:
+                                        if current_time - self.last_action_time > self.COOLDOWN:
+                                            if delta_x > 0:
+                                                self.sys_ctrl.skip_track()
+                                                self.status = "SKIPPING >>"
+                                            else:
+                                                self.sys_ctrl.previous_track()
+                                                self.status = "<< PREVIOUS"
+                                            
+                                            self.last_action_time = current_time
+                                            self.swipe_start_x = current_x 
+                                    
+                                    # Also check for "Play" while holding palm
+                                    elif current_time - self.last_action_time > self.COOLDOWN:
+                                        spotify_state = self.sys_ctrl.get_spotify_state()
+                                        if spotify_state == "paused" or (spotify_state == "unknown" and not self.win_is_playing):
+                                            self.sys_ctrl.play()
+                                            self.status = "RESUMING..."
+                                            self.win_is_playing = True
+                                            self.last_action_time = current_time
+                                else:
+                                    self.status = "PREPARING PALM..."
+                            
+                            elif pause_gesture(hand_landmarks):
+                                self.palm_start_time = 0
+                                self.is_swiping = False
+                                self.swipe_start_x = None
                                 
-                                if gesture and (current_time - self.last_action_time > self.COOLDOWN):
-                                    pyautogui.press('playpause')
-                                    self.status = f"DETECTED: {gesture}"
-                                    self.last_action_time = current_time
-                                elif not gesture and (current_time - self.last_action_time > 1.0):
-                                    if "SAVED" not in self.status and "VOLUME" not in self.status:
+                                if current_time - self.last_action_time > self.COOLDOWN:
+                                    spotify_state = self.sys_ctrl.get_spotify_state()
+                                    if spotify_state == "playing" or (spotify_state == "unknown" and self.win_is_playing):
+                                        self.sys_ctrl.pause()
+                                        self.status = "PAUSING..."
+                                        self.win_is_playing = False
+                                        self.last_action_time = current_time
+                            else:
+                                self.palm_start_time = 0
+                                self.is_swiping = False
+                                self.swipe_start_x = None
+                                if "SAVED" not in self.status and "VOLUME" not in self.status and "PALM" not in self.status:
+                                    if current_time - self.last_action_time > 1.0:
                                         self.status = "TRACKING..."
                 
                 if self.is_camera_on:
