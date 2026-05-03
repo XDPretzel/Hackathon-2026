@@ -94,6 +94,25 @@ try:
             self.header = ctk.CTkFrame(self, fg_color="transparent")
             self.header.pack(fill="x", padx=30, pady=(30, 10))
             
+            # Logo and Title
+            try:
+                logo_path = os.path.join(os.path.dirname(__file__), "gest.png")
+                # For bundled app path
+                if not os.path.exists(logo_path):
+                    logo_path = os.path.join(sys._MEIPASS, "gest.png")
+                
+                logo_img = Image.open(logo_path).convert("RGBA")
+                # Extract alpha channel and create a white version
+                alpha = logo_img.getchannel('A')
+                white_logo = Image.new("RGBA", logo_img.size, (255, 255, 255, 255))
+                white_logo.putalpha(alpha)
+                
+                logo_ctk = ctk.CTkImage(white_logo, size=(30, 30))
+                self.logo_label = ctk.CTkLabel(self.header, image=logo_ctk, text="")
+                self.logo_label.pack(side="left", padx=(0, 10))
+            except:
+                pass
+
             self.title_label = ctk.CTkLabel(self.header, text="GEST", font=("Segoe UI", 24, "bold"), text_color="#ffffff")
             self.title_label.pack(side="left")
 

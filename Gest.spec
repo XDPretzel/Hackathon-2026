@@ -12,7 +12,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[(ctk_path, 'customtkinter'), (mp_path, 'mediapipe')],
+    datas=[(ctk_path, 'customtkinter'), (mp_path, 'mediapipe'), ('gest.png', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -52,7 +52,7 @@ coll = COLLECT(
 app = BUNDLE(
     coll,
     name='Gest.app',
-    icon=None,
+    icon='Gest.icns',
     bundle_identifier='com.gest.media.controller',
     info_plist={
         'NSCameraUsageDescription': 'Gest needs camera access for hand tracking media control.',

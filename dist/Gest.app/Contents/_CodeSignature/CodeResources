@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/Gest.icns</key>
+		<data>
+		nGmIAbmNzvOAE+dpvJqztbsmVeI=
+		</data>
 		<key>Resources/_sounddevice_data/portaudio-binaries/README.md</key>
 		<data>
 		YiVHgXRiJ4Yi4pTutu/IH97W2jY=
@@ -1286,7 +1290,7 @@
 		</data>
 		<key>Resources/base_library.zip</key>
 		<data>
-		M444y6/XQ7deF3QroAUi9R1zdRo=
+		ZbBoa48HMt/2gPhkLHO9Q4MASl4=
 		</data>
 		<key>Resources/certifi/cacert.pem</key>
 		<data>
@@ -1670,7 +1674,7 @@
 		</data>
 		<key>Resources/cv2/__init__.py</key>
 		<data>
-		FAO5i8HyGaCOLVQYKj47baC/z1Y=
+		1mUqpiPK4lPn1NKC2MFbJ4+DnwA=
 		</data>
 		<key>Resources/cv2/config-3.py</key>
 		<data>
@@ -1686,15 +1690,15 @@
 		</data>
 		<key>Resources/cv2/gapi/__init__.py</key>
 		<data>
-		bdvdF23YNKN8n77Ty2V0s9jAdPU=
+		B6jQBziD8TLZmPTgCiXFzKpIiqw=
 		</data>
 		<key>Resources/cv2/load_config_py3.py</key>
 		<data>
-		3vl4pbFyTH6EzfWN0riAibODW10=
+		FxsQKmhMAb+MIVwuoKb+XQRDuTo=
 		</data>
 		<key>Resources/cv2/mat_wrapper/__init__.py</key>
 		<data>
-		K+OhgMUVqWENbojTNz52c5JrJtw=
+		hv2To0kh5cDOwee6vzPn7xRFFZQ=
 		</data>
 		<key>Resources/cv2/misc/__init__.py</key>
 		<data>
@@ -1706,7 +1710,7 @@
 		</data>
 		<key>Resources/cv2/typing/__init__.py</key>
 		<data>
-		KonTr2//UBy8CTKbR275zkjdm+U=
+		b6fMmCJRm4COETSwLpj68iuph8E=
 		</data>
 		<key>Resources/cv2/utils/__init__.py</key>
 		<data>
@@ -1714,15 +1718,15 @@
 		</data>
 		<key>Resources/cv2/version.py</key>
 		<data>
-		2gEwZmzUblv1wyz6VUASLkjpobI=
+		qkTFjDVqyR4hpkNZlzWQX3Fh+to=
 		</data>
 		<key>Resources/dateutil/zoneinfo/dateutil-zoneinfo.tar.gz</key>
 		<data>
 		c+JCO8FU6iR/UDl+lpaYpwphJ6s=
 		</data>
-		<key>Resources/icon-windowed.icns</key>
+		<key>Resources/gest.png</key>
 		<data>
-		eEHOuYpZLB0vKGVIWGZOh5rH8+o=
+		JnCZ6do2zN0gm25jbi83A/BHd0M=
 		</data>
 		<key>Resources/markupsafe-3.0.3.dist-info/INSTALLER</key>
 		<data>
@@ -7639,842 +7643,554 @@
 			<key>symlink</key>
 			<string>__dot__dylibs</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libSDL2-2.0.0.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libSvtAv1Enc.1.4.1.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			omWqkVbj9vfLaq1apXPE7Ht/Obk=
+			DYyRK2cpGAAKlyaK7ypPzCNnBBU=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"a265aa9156e3f6f7cb6aad5aa573c4ec7b7f39b9"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libSvtAv1Enc.3.0.2.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			xJFkDrlJoPXhxMC4KGKAbH0vNZI=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"c491640eb949a0f5e1c4c0b82862806c7d2f3592"</string>
+			<string>cdhash H"0d8c912b672918000a97268aef2a4fcc23670415"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libX11.6.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			lsXllzuY6gH3zKe6/HI4WyOcnNE=
+			qvFoASfID2lFQiKHAJbI4ciLGv0=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"96c5e5973b98ea01f7cca7bafc72385b239c9cd1"</string>
+			<string>cdhash H"aaf1680127c80f69454222870096c8e1c88b1afd"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libXau.6.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libXau.6.0.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			IY1w70gdTc3fPGAVlPCxdGMklRw=
+			TncoexnYJXtaSzGXVcfeKin8OyA=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"218d70ef481d4dcddf3c601594f0b1746324951c"</string>
+			<string>cdhash H"4e77287b19d8257b5a4b319755c7de2a29fc3b20"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libXdmcp.6.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			MOMEuCtUkHj96k7lppllMA1kwbc=
+			oXVIkbQhVWwaewGEsF7vhFvmd8k=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"30e304b82b549078fdea4ee5a69965300d64c1b7"</string>
+			<string>cdhash H"a1754891b421556c1a7b0184b05eef845be677c9"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libaom.3.12.1.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libaom.3.5.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			5/UILUFyhHHA5iw05PgxYU+uQpc=
+			PZHldjW59wBLMjfoYTkK2hjF+FE=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"e7f5082d41728471c0e62c34e4f831614fae4297"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libarchive.13.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			lQ3+HWOeQMs3V1mpN8z8jDOJBdA=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"950dfe1d639e40cb375759a937ccfc8c338905d0"</string>
+			<string>cdhash H"3d91e57635b9f7004b3237e861390ada18c5f851"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libaribb24.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			kw0J5nM0/jIkF4WWKUBdDeQ5CZk=
+			onSFgEY3VUzz9r1p3jeT/1ViDH0=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"930d09e67334fe322417859629405d0de4390999"</string>
+			<string>cdhash H"a27485804637554cf3f6bd69de3793ff55620c7d"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libass.9.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libavcodec.59.37.100.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			SMpOBSQNyJe2TQfRTzM62gaFcus=
+			zTAssP5OD0CjBko0UF7JSQ+3/TQ=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"48ca4e05240dc897b64d07d14f333ada068572eb"</string>
+			<string>cdhash H"cd302cb0fe4e0f40a3064a34505ec9490fb7fd34"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libavcodec.61.19.101.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libavformat.59.27.100.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			jwiS/StlF1pAzo/YRwHRA46uohM=
+			bGeAnEPpRwd9C47kZ4KQrwTfbIM=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"8f0892fd2b65175a40ce8fd84701d1038eaea213"</string>
+			<string>cdhash H"6c67809c43e947077d0b8ee4678290af04df6c83"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libavdevice.61.3.100.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libavutil.57.28.100.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			7HTY4uTFF1FntXLjqTIDz5YNIDE=
+			VXRQ66GPdNkzY/miYWcfOmsTqZw=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"ec74d8e2e4c5175167b572e3a93203cf960d2031"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libavfilter.10.4.100.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			J2b794DQOgtBG9BKFvX37dqnUnA=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"2766fbf780d03a0b411bd04a16f5f7eddaa75270"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libavformat.61.7.100.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			4cOLFxAnglk1Z4SD9u7NXdTRRnI=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"e1c38b171027825935678483f6eecd5dd4d14672"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libavif.16.3.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			LcTf4UbDrdNLCM4fyGFMxS8GMzo=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"2dc4dfe146c3add34b08ce1fc8614cc52f06333a"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libavutil.59.39.100.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			pTjBciGPwj+3+0yEQzTmqTtQFkQ=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"a538c172218fc23fb7fb4c844334e6a93b501644"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libb2.1.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			YZiRLEU7E/gI8c4wb86wsjh+sCI=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"6198912c453b13f808f1ce306fceb0b2387eb022"</string>
+			<string>cdhash H"557450eba18f74d93363f9a261671f3a6b13a99c"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libbluray.2.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			YJve/t3UHXl4zgOoOqGkWRY1G9Y=
+			bh9gZR6QxJEj62a6sNMdiKJBIDY=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"609bdefeddd41d7978ce03a83aa1a45916351bd6"</string>
+			<string>cdhash H"6e1f60651e90c49123eb66bab0d31d88a2412036"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libbrotlicommon.1.1.0.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libbrotlicommon.1.0.9.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			b5FbtgUcScp9R9RMkkCe9uJ1Dk0=
+			1/GpS1UCePh6kAJYRD/+gsLkTAM=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"6f915bb6051c49ca7d47d44c92409ef6e2750e4d"</string>
+			<string>cdhash H"d7f1a94b550278f87a900258443ffe82c2e44c03"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libbrotlidec.1.1.0.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libbrotlidec.1.0.9.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			950gmpW8sBExy/sOCil9X9J8niA=
+			RffjGkgWEk011qqspWzV9XPKeEo=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"f79d209a95bcb01131cbfb0e0a297d5fd27c9e20"</string>
+			<string>cdhash H"45f7e31a4816124d35d6aaaca56cd5f573ca784a"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libbrotlienc.1.1.0.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libbrotlienc.1.0.9.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			7tjwNSjWB24nIDsvU86pDpj3ltg=
+			81WoGmLuGEdc3RN045iK80bce5s=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"eed8f03528d6076e27203b2f53cea90e98f796d8"</string>
+			<string>cdhash H"f355a81a62ee18475cdd1374e3988af346dc7b9b"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libcjson.1.7.18.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libcjson.1.7.15.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			KP4EO6JFDNHfiGHWgsOnEbpzKjc=
+			qZbu3iU0KrsEtPBIEqcGe5eBYys=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"28fe043ba2450cd1df8861d682c3a711ba732a37"</string>
+			<string>cdhash H"a996eede25342abb04b4f04812a7067b9781632b"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libcrypto.3.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libcrypto.1.1.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			HRy2fcLbsuBEAIyeBE8/+u12qi0=
+			h8KqeQkr7Y8H8+YHRnA8xXX1sbw=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"1d1cb67dc2dbb2e044008c9e044f3ffaed76aa2d"</string>
+			<string>cdhash H"87c2aa79092bed8f07f3e60746703cc575f5b1bc"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libdav1d.7.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libdav1d.6.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			SuLFWHTfPnEj6d+/rMShMO35lnM=
+			WX3vg6J35dRegQKVb65DTED7ERs=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"4ae2c55874df3e7123e9dfbfacc4a130edf99673"</string>
+			<string>cdhash H"597def83a277e5d45e8102956fae434c40fb111b"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libfontconfig.1.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			cnRSXnz0VCr6chlYMiDuNZ8RcTg=
+			qnyORUP6Lq7LGzt8ELVd3Lsi518=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"7274525e7cf4542afa7219583220ee359f117138"</string>
+			<string>cdhash H"aa7c8e4543fa2eaecb1b3b7c10b55ddcbb22e75f"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libfreetype.6.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			kGqLDh/uCouaTJMfLmn3nT9oEr8=
+			/VJ429CxO7WCj9b+xTC7ii9xsrQ=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"906a8b0e1fee0a8b9a4c931f2e69f79d3f6812bf"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libfribidi.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			Lo2LK7D8UkiP+7PI5hcKvRW7l20=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"2e8d8b2bb0fc52488ffbb3c8e6170abd15bb976d"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libgif.7.2.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			oTMT+C2KkZOYfMqNYsKw0W9V71M=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"a13313f82d8a9193987cca8d62c2b0d16f55ef53"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libglib-2.0.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			lBk1V3rinTxiHSz02Tg1rQfRvpY=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"941935577ae29d3c621d2cf4d93835ad07d1be96"</string>
+			<string>cdhash H"fd5278dbd0b13bb5828fd6fec530bb8a2f71b2b4"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libgmp.10.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			6LpOOCk0CVRQ9FWhoKJFrcsTh5o=
+			Nc9iYFT/1WKnC+ZRQ1GElHCzCUA=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"e8ba4e382934095450f455a1a0a245adcb13879a"</string>
+			<string>cdhash H"35cf626054ffd562a70be6514351849470b30940"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libgnutls.30.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			38yiY3tE0Ob6DXKpo3a2ulq8g6E=
+			aTGg4GW0gJGzbTgelZl4L80tlJA=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"dfcca2637b44d0e6fa0d72a9a376b6ba5abc83a1"</string>
+			<string>cdhash H"6931a0e065b48091b36d381e9599782fcd2d9490"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libgraphite2.3.2.1.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libhogweed.6.6.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ZnGnZCAWazTUiTtM8C2cFUOqt0I=
+			NSd0ctRQxEa/WqY5NuzkNfzRj1I=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"6671a76420166b34d4893b4cf02d9c1543aab742"</string>
+			<string>cdhash H"35277472d450c446bf5aa63936ece435fcd18f52"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libharfbuzz.0.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libhwy.1.0.3.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			3VUivPNwL/NuMPEa+8beaZLO8Uk=
+			6cToodwfRZBWT0AJSK4uuF1CpX0=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"dd5522bcf3702ff36e30f11afbc6de6992cef149"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libhogweed.6.10.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			NbrKkggAJot2+Eq33MkaA9FGycs=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"35baca920800268b76f84ab7dcc91a03d146c9cb"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libhwy.1.2.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			ce29Ylzmf9zZGtaIaWbPOkA7bcY=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"71edbd625ce67fdcd91ad6886966cf3a403b6dc6"</string>
+			<string>cdhash H"e9c4e8a1dc1f4590564f400948ae2eb85d42a57d"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libidn2.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			HdTPaMqEh2UQGQJqPRHSyAj20NU=
+			MDSjQbPO+35DmCydEu5RY5X3vYs=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"1dd4cf68ca8487651019026a3d11d2c808f6d0d5"</string>
+			<string>cdhash H"3034a341b3cefb7e43982c9d12ee516395f7bd8b"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libintl.8.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			gbLdroNz4XqkzOPosFvhtGuYW4E=
+			FDF5wComrHgyg0eXhbqjTesfHQ4=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"81b2ddae8373e17aa4cce3e8b05be1b46b985b81"</string>
+			<string>cdhash H"143179c02a26ac783283479785baa34deb1f1d0e"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libjpeg.8.3.2.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libjxl.0.8.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			m023RcUxDCyBlkpeQFlNJzGNKJA=
+			v5PbncnqeYbHzSe2K0xbTWpPj6Q=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"9b4db745c5310c2c81964a5e40594d27318d2890"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libjxl.0.11.1.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			2vzpD7vLFa/QnH7x1RWhFDy0jCc=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"dafce90fbbcb15afd09c7ef1d515a1143cb48c27"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libjxl_cms.0.11.1.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			41P8/jDO/KJ0HUqigNEUyjhgayA=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"e353fcfe30cefca2741d4aa280d114ca38606b20"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libjxl_threads.0.11.1.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			FCZdDUjs5x4sPsMhJESnS6yozdI=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"14265d0d48ece71e2c3ec3212444a74baca8cdd2"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/liblcms2.2.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			uqYbNhjrJEJw/LHwz70zCgJg2nk=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"baa61b3618eb244270fcb1f0cfbd330a0260da79"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libleptonica.6.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			z7RGaA2BcWzIaAoIIK9pXW6pmYQ=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"cfb446680d81716cc8680a0820af695d6ea99984"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/liblz4.1.10.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			t9FpsgbSnLaVM8b4NHSWs+OAKbQ=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"b7d169b206d29cb69533c6f8347496b3e38029b4"</string>
+			<string>cdhash H"bf93db9dc9ea7986c7cd27b62b4c5b4d6a4f8fa4"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/liblzma.5.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			tGeEr2LFIuYF+/HeFPy/MEl+PfM=
+			nW2Pwm4N2WbJqmeNbh9hodNuFnM=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"b46784af62c522e605fbf1de14fcbf30497e3df3"</string>
+			<string>cdhash H"9d6d8fc26e0dd966c9aa678d6e1f61a1d36e1673"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libmbedcrypto.3.6.3.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libmbedcrypto.3.3.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ynyyQZgDOVJ3VIyYMSZLyniagZI=
+			yR7dA5UsBEsM+xUw3knJ4CtdY2k=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"ca7cb2419803395277548c9831264bca789a8192"</string>
+			<string>cdhash H"c91edd03952c044b0cfb1530de49c9e02b5d6369"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libmp3lame.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			/2mGyOBPxG3gkTm8PFYDHSI1jug=
+			ME4J9jt7MohaxhgAdeMYLQLCgmw=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"ff6986c8e04fc46de09139bc3c56031d22358ee8"</string>
+			<string>cdhash H"304e09f63b7b32885ac6180075e3182d02c2826c"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libnettle.8.10.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libnettle.8.6.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			vZPTQ8fAWGLVO1qdToIxDMh182c=
+			zyzL15Xppr5BkTVZYJkYc9LG2Ao=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"bd93d343c7c05862d53b5a9d4e82310cc875f367"</string>
+			<string>cdhash H"cf2ccbd795e9a6be4191355960991873d2c6d80a"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libogg.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			Y3PYdIoNMhP/rvCYlBvSpXAc/DY=
+			sEa0k8asSpN/a1Mn+t2z9OBKmKU=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"6373d8748a0d3213ffaef098941bd2a5701cfc36"</string>
+			<string>cdhash H"b046b493c6ac4a937f6b5327faddb3f4e04a98a5"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libopencore-amrnb.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			M3AkyKJk6yBv9E66WjJW2TRUSPw=
+			L5+xxvmnsZEC5F283CnG/Ooo8YE=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"337024c8a264eb206ff44eba5a3256d9345448fc"</string>
+			<string>cdhash H"2f9fb1c6f9a7b19102e45dbcdc29c6fcea28f181"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libopencore-amrwb.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			2GqxOaTsQ6f3XtkBiyjx0TZ9Aow=
+			1zCbjxyKCYO+9tQ/OIsaLCWGob4=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"d86ab139a4ec43a7f75ed9018b28f1d1367d028c"</string>
+			<string>cdhash H"d7309b8f1c8a0983bef6d43f388b1a2c2586a1be"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libopenjp2.2.5.3.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libopenjp2.2.5.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			SREoK0+NjhWo/6jnQYz/oQuWaB0=
+			P4wL0VRsV/UcNBJgpfKb4qKiIz0=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"4911282b4f8d8e15a8ffa8e7418cffa10b96681d"</string>
+			<string>cdhash H"3f8c0bd1546c57f51c341260a5f29be2a2a2233d"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libopus.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			LjRn7XvNdaRQQLaug2LtwegnB6g=
+			/kHJrkig5I4KJw2CTBhBiL1l7j8=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"2e3467ed7bcd75a45040b6ae8362edc1e82707a8"</string>
+			<string>cdhash H"fe41c9ae48a0e48e0a270d824c184188bd65ee3f"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libp11-kit.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ibdH2GntGVc9x/0mP13FJ533W48=
+			XQl0horg5v7JUiPLj62ss1hwaP4=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"89b747d869ed19573dc7fd263f5dc5279df75b8f"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libpcre2-8.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			FXPCj3/oLTojLEJlnSYNe5AnmTI=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"1573c28f7fe82d3a232c42659d260d7b90279932"</string>
+			<string>cdhash H"5d0974868ae0e6fec95223cb8fadacb3587068fe"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libpng16.16.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			oB5rq37IrT8jp2+ILPwTbb2cFKE=
+			4PV+O9QjfgMNPiNWov+WYPZykn4=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"a01e6bab7ec8ad3f23a76f882cfc136dbd9c14a1"</string>
+			<string>cdhash H"e0f57e3bd4237e030d3e2356a2ff9660f672927e"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libpostproc.58.3.100.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/librav1e.0.6.3.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			uGKYlnTBie5xumsCLyP/o+VfSTk=
+			FIQoNMXmDtZ1nE3Cf/0PpAtiJ60=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"b862989674c189ee71ba6b022f23ffa3e55f4939"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/librav1e.0.8.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			4RBan4T6sX9oHGeBfpPugXx8Ywc=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"e1105a9f84fab17f681c67817e93ee817c7c6307"</string>
+			<string>cdhash H"14842834c5e60ed6759c4dc27ffd0fa40b6227ad"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/librist.4.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			qj34kRB+0xadbXusTY+RUmnlVxM=
+			nt228k8/ZXLbl4FQyzcuTvXRRtU=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"aa3df891107ed3169d6d7bac4d8f915269e55713"</string>
+			<string>cdhash H"9eddb6f24f3f6572db978150cb372e4ef5d146d5"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/librubberband.3.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libsharpyuv.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ViUWzYRYziJ9mdfmrvNy7Mvo+yo=
+			dzGO2p2LxZ5FkY4TKzsb5b2DLlg=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"562516cd8458ce227d99d7e6aef372eccbe8fb2a"</string>
+			<string>cdhash H"77318eda9d8bc59e45918e132b3b1be5bd832e58"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libsamplerate.0.2.2.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libsnappy.1.1.9.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			g2lUCHvJqa4UfOLDsG6/Ss5qTtg=
+			KXivfx5vXDGXZXX7l5wWnMoMI+8=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"836954087bc9a9ae147ce2c3b06ebf4ace6a4ed8"</string>
+			<string>cdhash H"2978af7f1e6f5c31976575fb979c169cca0c23ef"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libsharpyuv.0.1.1.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libsodium.23.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			n6J2NqQeQoYzrMSzFsXW0dRwzqg=
+			l+FjdND83e8TmsXxKa5c37+DpvY=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"9fa27636a41e428633acc4b316c5d6d1d470cea8"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libsnappy.1.2.2.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			DC0lA1COq7FGngl3yF13MxGi8d4=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"0c2d2503508eabb1469e0977c85d773311a2f1de"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libsodium.26.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			/kXrFV7WpQRIrAZeqIs22No5IOg=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"fe45eb155ed6a50448ac065ea88b36d8da3920e8"</string>
+			<string>cdhash H"97e16374d0fcddef139ac5f129ae5cdfbf83a6f6"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libsoxr.0.1.2.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			zkXS2ZevCGJi49mteZnrK9Dwb+M=
+			+0RiaaRRejGM92CDe+2trHPtTIo=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"ce45d2d997af086262e3d9ad7999eb2bd0f06fe3"</string>
+			<string>cdhash H"fb446269a4517a318cf760837bedadac73ed4c8a"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libspeex.1.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			Sbi1iFFbWW+70wlq3jCMFxUtLJw=
+			RBSUhZDcbkVBZAjawf8XGjNS1WM=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"49b8b588515b596fbbd3096ade308c17152d2c9c"</string>
+			<string>cdhash H"4414948590dc6e45416408dac1ff171a3352d563"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libsrt.1.5.4.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libsrt.1.5.1.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ti8NOwTpdAZtUkHDMRweUnmjO3g=
+			1SxSAe/F0hMdbdpVAN0jIrybB+0=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"b62f0d3b04e974066d5241c3311c1e5279a33b78"</string>
+			<string>cdhash H"d52c5201efc5d2131d6dda5500dd2322bc9b07ed"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libssh.4.10.1.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libssl.1.1.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			7xlY5Sf1cDbUmzbi8mfYwJuM5kw=
+			wWeVO3rlbQ24rV1rnEaBeCF+fa8=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"ef1958e527f57036d49b36e2f267d8c09b8ce64c"</string>
+			<string>cdhash H"c167953b7ae56d0db8ad5d6b9c468178217e7daf"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libssl.3.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libswresample.4.7.100.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			s9epNzhCgqWETCqtxCGXLkhH+fY=
+			UtzLQfnHfLJcCVGS5XX73eYFFNg=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"b3d7a937384282a5844c2aadc421972e4847f9f6"</string>
+			<string>cdhash H"52dccb41f9c77cb25c095192e575fbdde60514d8"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libswresample.5.3.100.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libswscale.6.7.100.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			40sDCNP0C4Lkcs/VGTme3XgxeO4=
+			fbPdPRuxNlyGQixs6BiDLtwO0vE=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"e34b0308d3f40b82e472cfd519399edd783178ee"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libswscale.8.3.100.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			bB2fSGjThHJVdpfTBJI5KG89HIc=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"6c1d9f4868d38472557697d3049239286f3d1c87"</string>
+			<string>cdhash H"7db3dd3d1bb1365c86422c6ce818832edc0ed2f1"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libtasn1.6.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			f0M7c7ML6Sy8SWmyiCAUk1wRfpQ=
+			FKiHH+kmWpJS4kl3Qo9qu0fHBxI=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"7f433b73b30be92cbc4969b2882014935c117e94"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libtesseract.5.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			TMwTTHCelXvnXRIUTsJFKqAZlJQ=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"4ccc134c709e957be75d12144ec2452aa0199494"</string>
+			<string>cdhash H"14a8871fe9265a9252e24977428f6abb47c70712"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libtheoradec.1.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			Wyv+2w3XPHqcxj/nrsbrD3K4kkk=
+			uDxmM4QvQGadVTdD8F42WXhyjyg=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"5b2bfedb0dd73c7a9cc63fe7aec6eb0f72b89249"</string>
+			<string>cdhash H"b83c6633842f40669d553743f05e365978728f28"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libtheoraenc.1.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			GTBcuMygHL09ucUMtggb9QItKTI=
+			vSLFUG+uTB8LU0ugk/priE4XGkg=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"19305cb8cca01cbd3db9c50cb6081bf5022d2932"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libtiff.6.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			MPOAAAed1JrOHE23P8YpjVeS6Nc=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"30f38000079dd49ace1c4db73fc6298d5792e8d7"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libunibreak.6.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			ArEO6jOBuX29ew5rbBc9UoIP4gs=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"02b10eea3381b97dbd7b0e6b6c173d52820fe20b"</string>
+			<string>cdhash H"bd22c5506fae4c1f0b534ba093fa6b884e171a48"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libunistring.5.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			FAtjT7XYR76vDY3411l+OwnnL8w=
+			FNbp3qBh9mZXXDz3+DR2uhhQtow=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"140b634fb5d847beaf0d8df8d7597e3b09e72fcc"</string>
+			<string>cdhash H"14d6e9dea061f666575c3cf7f83476ba1850b68c"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libvidstab.1.2.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libvmaf.1.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			l0OnO1/41/L9Y+aWcjpxvYuYXDo=
+			fbWVCW3mnnr16hn3GW9bnhdb5s0=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"9743a73b5ff8d7f2fd63e696723a71bd8b985c3a"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libvmaf.3.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			GMEGx1LvFoQhmLDk0A2Mw9hQ+Xg=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"18c106c752ef16842198b0e4d00d8cc3d850f978"</string>
+			<string>cdhash H"7db595096de69e7af5ea19f7196f5b9e175be6cd"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libvorbis.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			2PjgZhCLnCSFsPUFWRr8djHUiRc=
+			ZypDQFyIedVsD4AGKsz+Z47XVEs=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"d8f8e066108b9c2485b0f505591afc7631d48917"</string>
+			<string>cdhash H"672a43405c8879d56c0f80062accfe678ed7544b"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libvorbisenc.2.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			2HZdAu8U5mk9+vtl+jRwb8mZLp0=
+			r5ALwXGV+Hk2Yx8/hOvQqsFm0H0=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"d8765d02ef14e6693dfafb65fa34706fc9992e9d"</string>
+			<string>cdhash H"af900bc17195f87936631f3f84ebd0aac166d07d"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libvpx.11.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libvpx.7.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			tFuVTFnFB/dyvV2xOk4nc25BNkA=
+			MSimhGOZ5P51ZhmWuthcEnSB5ls=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"b45b954c59c507f772bd5db13a4e27736e413640"</string>
+			<string>cdhash H"3128a6846399e4fe75661996bad85c127481e65b"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libwebp.7.1.10.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libwebp.7.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			8Nk/m/gpalaXwuQCWO68JdopEwU=
+			NP6hF6xgpJsukqPvC354mNIvwUk=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"f0d93f9bf8296a5697c2e40258eebc25da291305"</string>
+			<string>cdhash H"34fea117ac60a49b2e92a3ef0b7e7898d22fc149"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libwebpmux.3.1.1.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libwebpmux.3.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			MJhIavXthZo+UTb/uklPH//IxFY=
+			6NdboyB6/HW/02LGLTFCKbUUZ+k=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"3098486af5ed859a3e5136ffba494f1fffc8c456"</string>
+			<string>cdhash H"e8d75ba3207afc75bfd362c62d314229b51467e9"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libx264.164.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			8sPQQpfQ/bD/YKY3d4XynFzKlHg=
+			ZUV+Q4pSnPvSWVgSXEhoyCz/Cwo=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"f2c3d04297d0fdb0ff60a6377785f29c5cca9478"</string>
+			<string>cdhash H"65457e438a529cfbd25958125c4868c82cff0b0a"</string>
 		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libx265.215.dylib</key>
+		<key>Frameworks/cv2/__dot__dylibs/libx265.199.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			0+9e+uuGJr4cbSMwiJGdD7b+QPo=
+			hBD/f07YegOu3jouv4hD15UcgJ4=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"d3ef5efaeb8626be1c6d233088919d0fb6fe40fa"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libxcb-shape.0.0.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			/2/JNHRE1m/OCQfaXIBtZ5tjSaQ=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"ff6fc9347444d66fce0907da5c806d679b6349a4"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libxcb-shm.0.0.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			8pKwlGBc0buShNIRVkX6xClknPU=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"f292b094605cd1bb9284d2115645fac429649cf5"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libxcb-xfixes.0.0.0.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			0hb/D4uL6JgeeTnr3uiVN4J/syo=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"d216ff0f8b8be8981e7939ebdee89537827fb32a"</string>
+			<string>cdhash H"8410ff7f4ed87a03aede3a2ebf8843d7951c809e"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libxcb.1.1.0.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			vVPN7JM7cCmDHmmx+KSkBZTi7ew=
+			eazM76NXiTTvyWgLThh5NsQtJI8=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"bd53cdec933b7029831e69b1f8a4a40594e2edec"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libzimg.2.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			Fp7JdvwJeRandjwXdnatZqAOxRw=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"169ec976fc097916a7763c177676ad66a00ec51c"</string>
+			<string>cdhash H"79acccefa3578934efc9680b4e187936c42d248f"</string>
 		</dict>
 		<key>Frameworks/cv2/__dot__dylibs/libzmq.5.dylib</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			Ftq79hUYDBA1chCZ7vaGm0im0a4=
+			VC7KXKGzsGJnlGm2pBxqESyNwec=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"16dabbf615180c1035721099eef6869b48a6d1ae"</string>
-		</dict>
-		<key>Frameworks/cv2/__dot__dylibs/libzstd.1.5.7.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			7qpxWP49KIHgcb7z5yr4o0yPsjE=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"eeaa7158fe3d2881e071bef3e72af8a34c8fb231"</string>
+			<string>cdhash H"542eca5ca1b3b062679469b6a41c6a112c8dc1e7"</string>
 		</dict>
 		<key>Frameworks/cv2/__init__.py</key>
 		<dict>
@@ -8495,10 +8211,10 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			uLVkjkxBJkTd3Pvi1qMtdVoQJc8=
+			B5lf2Vh/v5Tax587F1kMhHL9Nzg=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"b8b5648e4c412644dddcfbe2d6a32d755a1025cf"</string>
+			<string>cdhash H"07995fd9587fbf94dac79f3b17590c8472fd3738"</string>
 		</dict>
 		<key>Frameworks/cv2/data</key>
 		<dict>
@@ -8545,6 +8261,11 @@
 			<key>symlink</key>
 			<string>../Resources/dateutil</string>
 		</dict>
+		<key>Frameworks/gest.png</key>
+		<dict>
+			<key>symlink</key>
+			<string>../Resources/gest.png</string>
+		</dict>
 		<key>Frameworks/google/_upb/_message.abi3.so</key>
 		<dict>
 			<key>cdhash</key>
@@ -8563,20 +8284,20 @@
 			<key>requirement</key>
 			<string>cdhash H"09a8e8aac09e82939ad78bf9522f6e32efe9dfee"</string>
 		</dict>
-		<key>Frameworks/libSDL2-2.0.0.dylib</key>
+		<key>Frameworks/libSvtAv1Enc.1.4.1.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libSDL2-2.0.0.dylib</string>
-		</dict>
-		<key>Frameworks/libSvtAv1Enc.3.0.2.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libSvtAv1Enc.3.0.2.dylib</string>
+			<string>cv2/.dylibs/libSvtAv1Enc.1.4.1.dylib</string>
 		</dict>
 		<key>Frameworks/libX11.6.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/libX11.6.dylib</string>
+		</dict>
+		<key>Frameworks/libXau.6.0.0.dylib</key>
+		<dict>
+			<key>symlink</key>
+			<string>cv2/.dylibs/libXau.6.0.0.dylib</string>
 		</dict>
 		<key>Frameworks/libXau.6.dylib</key>
 		<dict>
@@ -8588,110 +8309,89 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libXdmcp.6.dylib</string>
 		</dict>
-		<key>Frameworks/libaom.3.12.1.dylib</key>
+		<key>Frameworks/libaom.3.5.0.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libaom.3.12.1.dylib</string>
-		</dict>
-		<key>Frameworks/libarchive.13.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libarchive.13.dylib</string>
+			<string>cv2/.dylibs/libaom.3.5.0.dylib</string>
 		</dict>
 		<key>Frameworks/libaribb24.0.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/libaribb24.0.dylib</string>
 		</dict>
-		<key>Frameworks/libass.9.dylib</key>
+		<key>Frameworks/libavcodec.59.37.100.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libass.9.dylib</string>
+			<string>cv2/.dylibs/libavcodec.59.37.100.dylib</string>
 		</dict>
-		<key>Frameworks/libavcodec.61.19.101.dylib</key>
+		<key>Frameworks/libavformat.59.27.100.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libavcodec.61.19.101.dylib</string>
-		</dict>
-		<key>Frameworks/libavdevice.61.3.100.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libavdevice.61.3.100.dylib</string>
-		</dict>
-		<key>Frameworks/libavfilter.10.4.100.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libavfilter.10.4.100.dylib</string>
-		</dict>
-		<key>Frameworks/libavformat.61.7.100.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libavformat.61.7.100.dylib</string>
-		</dict>
-		<key>Frameworks/libavif.16.3.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libavif.16.3.0.dylib</string>
+			<string>cv2/.dylibs/libavformat.59.27.100.dylib</string>
 		</dict>
 		<key>Frameworks/libavif.16.4.1.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/libavif.16.4.1.dylib</string>
 		</dict>
-		<key>Frameworks/libavutil.59.39.100.dylib</key>
+		<key>Frameworks/libavutil.57.28.100.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libavutil.59.39.100.dylib</string>
-		</dict>
-		<key>Frameworks/libb2.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libb2.1.dylib</string>
+			<string>cv2/.dylibs/libavutil.57.28.100.dylib</string>
 		</dict>
 		<key>Frameworks/libbluray.2.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/libbluray.2.dylib</string>
 		</dict>
-		<key>Frameworks/libbrotlicommon.1.1.0.dylib</key>
+		<key>Frameworks/libbrotlicommon.1.0.9.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libbrotlicommon.1.1.0.dylib</string>
+			<string>cv2/.dylibs/libbrotlicommon.1.0.9.dylib</string>
 		</dict>
 		<key>Frameworks/libbrotlicommon.1.2.0.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/libbrotlicommon.1.2.0.dylib</string>
 		</dict>
-		<key>Frameworks/libbrotlidec.1.1.0.dylib</key>
+		<key>Frameworks/libbrotlidec.1.0.9.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libbrotlidec.1.1.0.dylib</string>
+			<string>cv2/.dylibs/libbrotlidec.1.0.9.dylib</string>
 		</dict>
 		<key>Frameworks/libbrotlidec.1.2.0.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/libbrotlidec.1.2.0.dylib</string>
 		</dict>
-		<key>Frameworks/libbrotlienc.1.1.0.dylib</key>
+		<key>Frameworks/libbrotlienc.1.0.9.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libbrotlienc.1.1.0.dylib</string>
+			<string>cv2/.dylibs/libbrotlienc.1.0.9.dylib</string>
 		</dict>
-		<key>Frameworks/libcjson.1.7.18.dylib</key>
+		<key>Frameworks/libcjson.1.7.15.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libcjson.1.7.18.dylib</string>
+			<string>cv2/.dylibs/libcjson.1.7.15.dylib</string>
+		</dict>
+		<key>Frameworks/libcrypto.1.1.dylib</key>
+		<dict>
+			<key>symlink</key>
+			<string>cv2/.dylibs/libcrypto.1.1.dylib</string>
 		</dict>
 		<key>Frameworks/libcrypto.3.dylib</key>
 		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libcrypto.3.dylib</string>
+			<key>cdhash</key>
+			<data>
+			BUSAxeGOwsBrU2YUZZ3MK/PK6A8=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"054480c5e18ec2c06b536614659dcc2bf3cae80f"</string>
 		</dict>
-		<key>Frameworks/libdav1d.7.dylib</key>
+		<key>Frameworks/libdav1d.6.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libdav1d.7.dylib</string>
+			<string>cv2/.dylibs/libdav1d.6.dylib</string>
 		</dict>
 		<key>Frameworks/libfontconfig.1.dylib</key>
 		<dict>
@@ -8703,11 +8403,6 @@
 			<key>symlink</key>
 			<string>PIL/.dylibs/libfreetype.6.dylib</string>
 		</dict>
-		<key>Frameworks/libfribidi.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libfribidi.0.dylib</string>
-		</dict>
 		<key>Frameworks/libgcc_s.1.1.dylib</key>
 		<dict>
 			<key>symlink</key>
@@ -8717,16 +8412,6 @@
 		<dict>
 			<key>symlink</key>
 			<string>numpy/.dylibs/libgfortran.5.dylib</string>
-		</dict>
-		<key>Frameworks/libgif.7.2.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libgif.7.2.0.dylib</string>
-		</dict>
-		<key>Frameworks/libglib-2.0.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libglib-2.0.0.dylib</string>
 		</dict>
 		<key>Frameworks/libgmp.10.dylib</key>
 		<dict>
@@ -8738,25 +8423,20 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libgnutls.30.dylib</string>
 		</dict>
-		<key>Frameworks/libgraphite2.3.2.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libgraphite2.3.2.1.dylib</string>
-		</dict>
 		<key>Frameworks/libharfbuzz.0.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/libharfbuzz.0.dylib</string>
 		</dict>
-		<key>Frameworks/libhogweed.6.10.dylib</key>
+		<key>Frameworks/libhogweed.6.6.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libhogweed.6.10.dylib</string>
+			<string>cv2/.dylibs/libhogweed.6.6.dylib</string>
 		</dict>
-		<key>Frameworks/libhwy.1.2.0.dylib</key>
+		<key>Frameworks/libhwy.1.0.3.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libhwy.1.2.0.dylib</string>
+			<string>cv2/.dylibs/libhwy.1.0.3.dylib</string>
 		</dict>
 		<key>Frameworks/libidn2.0.dylib</key>
 		<dict>
@@ -8773,50 +8453,25 @@
 			<key>symlink</key>
 			<string>PIL/.dylibs/libjpeg.62.4.0.dylib</string>
 		</dict>
-		<key>Frameworks/libjpeg.8.3.2.dylib</key>
+		<key>Frameworks/libjxl.0.8.0.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libjpeg.8.3.2.dylib</string>
-		</dict>
-		<key>Frameworks/libjxl.0.11.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libjxl.0.11.1.dylib</string>
-		</dict>
-		<key>Frameworks/libjxl_cms.0.11.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libjxl_cms.0.11.1.dylib</string>
-		</dict>
-		<key>Frameworks/libjxl_threads.0.11.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libjxl_threads.0.11.1.dylib</string>
+			<string>cv2/.dylibs/libjxl.0.8.0.dylib</string>
 		</dict>
 		<key>Frameworks/liblcms2.2.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/liblcms2.2.dylib</string>
 		</dict>
-		<key>Frameworks/libleptonica.6.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libleptonica.6.dylib</string>
-		</dict>
-		<key>Frameworks/liblz4.1.10.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/liblz4.1.10.0.dylib</string>
-		</dict>
 		<key>Frameworks/liblzma.5.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/liblzma.5.dylib</string>
 		</dict>
-		<key>Frameworks/libmbedcrypto.3.6.3.dylib</key>
+		<key>Frameworks/libmbedcrypto.3.3.0.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libmbedcrypto.3.6.3.dylib</string>
+			<string>cv2/.dylibs/libmbedcrypto.3.3.0.dylib</string>
 		</dict>
 		<key>Frameworks/libmp3lame.0.dylib</key>
 		<dict>
@@ -8832,10 +8487,10 @@
 			<key>requirement</key>
 			<string>cdhash H"4706955fe1b41fee221e3ddcf0fae29e9b732492"</string>
 		</dict>
-		<key>Frameworks/libnettle.8.10.dylib</key>
+		<key>Frameworks/libnettle.8.6.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libnettle.8.10.dylib</string>
+			<string>cv2/.dylibs/libnettle.8.6.dylib</string>
 		</dict>
 		<key>Frameworks/libogg.0.dylib</key>
 		<dict>
@@ -8857,10 +8512,10 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libopencore-amrwb.0.dylib</string>
 		</dict>
-		<key>Frameworks/libopenjp2.2.5.3.dylib</key>
+		<key>Frameworks/libopenjp2.2.5.0.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libopenjp2.2.5.3.dylib</string>
+			<string>cv2/.dylibs/libopenjp2.2.5.0.dylib</string>
 		</dict>
 		<key>Frameworks/libopenjp2.2.5.4.dylib</key>
 		<dict>
@@ -8877,65 +8532,40 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libp11-kit.0.dylib</string>
 		</dict>
-		<key>Frameworks/libpcre2-8.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libpcre2-8.0.dylib</string>
-		</dict>
 		<key>Frameworks/libpng16.16.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/libpng16.16.dylib</string>
-		</dict>
-		<key>Frameworks/libpostproc.58.3.100.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libpostproc.58.3.100.dylib</string>
 		</dict>
 		<key>Frameworks/libquadmath.0.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>numpy/.dylibs/libquadmath.0.dylib</string>
 		</dict>
-		<key>Frameworks/librav1e.0.8.0.dylib</key>
+		<key>Frameworks/librav1e.0.6.3.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/librav1e.0.8.0.dylib</string>
+			<string>cv2/.dylibs/librav1e.0.6.3.dylib</string>
 		</dict>
 		<key>Frameworks/librist.4.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/librist.4.dylib</string>
 		</dict>
-		<key>Frameworks/librubberband.3.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/librubberband.3.dylib</string>
-		</dict>
-		<key>Frameworks/libsamplerate.0.2.2.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libsamplerate.0.2.2.dylib</string>
-		</dict>
-		<key>Frameworks/libsharpyuv.0.1.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libsharpyuv.0.1.1.dylib</string>
-		</dict>
 		<key>Frameworks/libsharpyuv.0.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>PIL/.dylibs/libsharpyuv.0.dylib</string>
+			<string>cv2/.dylibs/libsharpyuv.0.dylib</string>
 		</dict>
-		<key>Frameworks/libsnappy.1.2.2.dylib</key>
+		<key>Frameworks/libsnappy.1.1.9.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libsnappy.1.2.2.dylib</string>
+			<string>cv2/.dylibs/libsnappy.1.1.9.dylib</string>
 		</dict>
-		<key>Frameworks/libsodium.26.dylib</key>
+		<key>Frameworks/libsodium.23.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libsodium.26.dylib</string>
+			<string>cv2/.dylibs/libsodium.23.dylib</string>
 		</dict>
 		<key>Frameworks/libsoxr.0.1.2.dylib</key>
 		<dict>
@@ -8947,30 +8577,34 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libspeex.1.dylib</string>
 		</dict>
-		<key>Frameworks/libsrt.1.5.4.dylib</key>
+		<key>Frameworks/libsrt.1.5.1.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libsrt.1.5.4.dylib</string>
+			<string>cv2/.dylibs/libsrt.1.5.1.dylib</string>
 		</dict>
-		<key>Frameworks/libssh.4.10.1.dylib</key>
+		<key>Frameworks/libssl.1.1.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libssh.4.10.1.dylib</string>
+			<string>cv2/.dylibs/libssl.1.1.dylib</string>
 		</dict>
 		<key>Frameworks/libssl.3.dylib</key>
 		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libssl.3.dylib</string>
+			<key>cdhash</key>
+			<data>
+			gR8XUod+n+FsdxuoLEZv/Ht01sw=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"811f1752877e9fe16c771ba82c466ffc7b74d6cc"</string>
 		</dict>
-		<key>Frameworks/libswresample.5.3.100.dylib</key>
+		<key>Frameworks/libswresample.4.7.100.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libswresample.5.3.100.dylib</string>
+			<string>cv2/.dylibs/libswresample.4.7.100.dylib</string>
 		</dict>
-		<key>Frameworks/libswscale.8.3.100.dylib</key>
+		<key>Frameworks/libswscale.6.7.100.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libswscale.8.3.100.dylib</string>
+			<string>cv2/.dylibs/libswscale.6.7.100.dylib</string>
 		</dict>
 		<key>Frameworks/libtasn1.6.dylib</key>
 		<dict>
@@ -8985,11 +8619,6 @@
 			</data>
 			<key>requirement</key>
 			<string>cdhash H"a7ae2bb861f795133e82c7b02cee06c604314bc5"</string>
-		</dict>
-		<key>Frameworks/libtesseract.5.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libtesseract.5.dylib</string>
 		</dict>
 		<key>Frameworks/libtheoradec.1.dylib</key>
 		<dict>
@@ -9015,25 +8644,15 @@
 			<key>requirement</key>
 			<string>cdhash H"fdc4b585c0e0a120a10b7762105b9942378272dd"</string>
 		</dict>
-		<key>Frameworks/libunibreak.6.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libunibreak.6.dylib</string>
-		</dict>
 		<key>Frameworks/libunistring.5.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/libunistring.5.dylib</string>
 		</dict>
-		<key>Frameworks/libvidstab.1.2.dylib</key>
+		<key>Frameworks/libvmaf.1.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libvidstab.1.2.dylib</string>
-		</dict>
-		<key>Frameworks/libvmaf.3.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libvmaf.3.dylib</string>
+			<string>cv2/.dylibs/libvmaf.1.dylib</string>
 		</dict>
 		<key>Frameworks/libvorbis.0.dylib</key>
 		<dict>
@@ -9045,15 +8664,10 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libvorbisenc.2.dylib</string>
 		</dict>
-		<key>Frameworks/libvpx.11.dylib</key>
+		<key>Frameworks/libvpx.7.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libvpx.11.dylib</string>
-		</dict>
-		<key>Frameworks/libwebp.7.1.10.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libwebp.7.1.10.dylib</string>
+			<string>cv2/.dylibs/libvpx.7.dylib</string>
 		</dict>
 		<key>Frameworks/libwebp.7.dylib</key>
 		<dict>
@@ -9065,11 +8679,6 @@
 			<key>symlink</key>
 			<string>PIL/.dylibs/libwebpdemux.2.dylib</string>
 		</dict>
-		<key>Frameworks/libwebpmux.3.1.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libwebpmux.3.1.1.dylib</string>
-		</dict>
 		<key>Frameworks/libwebpmux.3.dylib</key>
 		<dict>
 			<key>symlink</key>
@@ -9080,25 +8689,10 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libx264.164.dylib</string>
 		</dict>
-		<key>Frameworks/libx265.215.dylib</key>
+		<key>Frameworks/libx265.199.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libx265.215.dylib</string>
-		</dict>
-		<key>Frameworks/libxcb-shape.0.0.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libxcb-shape.0.0.0.dylib</string>
-		</dict>
-		<key>Frameworks/libxcb-shm.0.0.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libxcb-shm.0.0.0.dylib</string>
-		</dict>
-		<key>Frameworks/libxcb-xfixes.0.0.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libxcb-xfixes.0.0.0.dylib</string>
+			<string>cv2/.dylibs/libx265.199.dylib</string>
 		</dict>
 		<key>Frameworks/libxcb.1.1.0.dylib</key>
 		<dict>
@@ -9110,20 +8704,10 @@
 			<key>symlink</key>
 			<string>PIL/.dylibs/libz.1.3.1.zlib-ng.dylib</string>
 		</dict>
-		<key>Frameworks/libzimg.2.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libzimg.2.dylib</string>
-		</dict>
 		<key>Frameworks/libzmq.5.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/libzmq.5.dylib</string>
-		</dict>
-		<key>Frameworks/libzstd.1.5.7.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libzstd.1.5.7.dylib</string>
 		</dict>
 		<key>Frameworks/markupsafe-3.0.3.dist-info</key>
 		<dict>
@@ -10245,6 +9829,13 @@
 		<dict>
 			<key>symlink</key>
 			<string>../Frameworks/Foundation</string>
+		</dict>
+		<key>Resources/Gest.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/bBUrUo1dkVDaEknCzmjmR6nl7D89dLBNMIaspD5a3o=
+			</data>
 		</dict>
 		<key>Resources/PIL</key>
 		<dict>
@@ -12525,7 +12116,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OWXQ05MWKuO9AQbJi2MajwuXQ9pTmQY4tk3U7TAVFFI=
+			/FgemaCCQ6bkGYz+E+VKqhfdQC+ZciNttvKJ2qOh6Nw=
 			</data>
 		</dict>
 		<key>Resources/certifi/cacert.pem</key>
@@ -13207,7 +12798,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			k2vZTFpd6/AhL8dRr3nToWNlLz6FAlnfIVnbaqPtitg=
+			1tRL4PD5gcwFerwMFSN3tJbttHjR+mNVzgNfcR3JSyU=
 			</data>
 		</dict>
 		<key>Resources/cv2/config-3.py</key>
@@ -13240,21 +12831,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6WBAjfq1FCiRADgYXGAKITHdBB6t0/jZ8hkTU8Biz+M=
+			dVZtvRrl93qGAlMCyQRmowk8JjepWsyDk2csY52yr7s=
 			</data>
 		</dict>
 		<key>Resources/cv2/load_config_py3.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nCJ2ZFSprC9oadN4MLLvxpnnuMMSVITpl2xuZ3wGYCk=
+			A9wfETdKZnybfbEN1SdtZAsMLVsueGa0zO93JzK9OFI=
 			</data>
 		</dict>
 		<key>Resources/cv2/mat_wrapper/__init__.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i2JwY6kmDL/s7YXzIl+JZuWCMVYkRi4F6j60W3j4P9A=
+			YsMujHSG9Xj5yQa4cXYBdads19w1RkUnhRhPswbcC18=
 			</data>
 		</dict>
 		<key>Resources/cv2/misc/__init__.py</key>
@@ -13275,7 +12866,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+L6CQIC0Nri8j3HnyHIMpIT3oGKHpdrnf0qG1yT3CwI=
+			yxiYZ3jsF9OAXjTKV0tkZrLSpQ/Ie74z6e14y77O6Qc=
 			</data>
 		</dict>
 		<key>Resources/cv2/utils/__init__.py</key>
@@ -13289,7 +12880,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ffZJbWDiaV6C/QrFagFFa0T3gY8pCHXPRrIxIVJPKCE=
+			PFOOt2PCbIUvZa6qjHXlEDfuLdJzOupORWsC4WfGwuw=
 			</data>
 		</dict>
 		<key>Resources/dateutil/zoneinfo/dateutil-zoneinfo.tar.gz</key>
@@ -13299,37 +12890,37 @@
 			0+pS57bpaN4NiE3xKIGTWW+pW4A9tPkqGCeac5gARHU=
 			</data>
 		</dict>
+		<key>Resources/gest.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			aHGakolYnvoPuL+mF8l8s8ZSIh4/iOQT0h4lMKil8TE=
+			</data>
+		</dict>
 		<key>Resources/google</key>
 		<dict>
 			<key>symlink</key>
 			<string>../Frameworks/google</string>
-		</dict>
-		<key>Resources/icon-windowed.icns</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			uQo7VuWRab4Phv4EEGmfQsyqFqDIXZgO8OtgaAMvCzY=
-			</data>
 		</dict>
 		<key>Resources/kiwisolver</key>
 		<dict>
 			<key>symlink</key>
 			<string>../Frameworks/kiwisolver</string>
 		</dict>
-		<key>Resources/libSDL2-2.0.0.dylib</key>
+		<key>Resources/libSvtAv1Enc.1.4.1.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libSDL2-2.0.0.dylib</string>
-		</dict>
-		<key>Resources/libSvtAv1Enc.3.0.2.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libSvtAv1Enc.3.0.2.dylib</string>
+			<string>cv2/.dylibs/libSvtAv1Enc.1.4.1.dylib</string>
 		</dict>
 		<key>Resources/libX11.6.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/libX11.6.dylib</string>
+		</dict>
+		<key>Resources/libXau.6.0.0.dylib</key>
+		<dict>
+			<key>symlink</key>
+			<string>cv2/.dylibs/libXau.6.0.0.dylib</string>
 		</dict>
 		<key>Resources/libXau.6.dylib</key>
 		<dict>
@@ -13341,110 +12932,85 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libXdmcp.6.dylib</string>
 		</dict>
-		<key>Resources/libaom.3.12.1.dylib</key>
+		<key>Resources/libaom.3.5.0.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libaom.3.12.1.dylib</string>
-		</dict>
-		<key>Resources/libarchive.13.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libarchive.13.dylib</string>
+			<string>cv2/.dylibs/libaom.3.5.0.dylib</string>
 		</dict>
 		<key>Resources/libaribb24.0.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/libaribb24.0.dylib</string>
 		</dict>
-		<key>Resources/libass.9.dylib</key>
+		<key>Resources/libavcodec.59.37.100.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libass.9.dylib</string>
+			<string>cv2/.dylibs/libavcodec.59.37.100.dylib</string>
 		</dict>
-		<key>Resources/libavcodec.61.19.101.dylib</key>
+		<key>Resources/libavformat.59.27.100.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libavcodec.61.19.101.dylib</string>
-		</dict>
-		<key>Resources/libavdevice.61.3.100.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libavdevice.61.3.100.dylib</string>
-		</dict>
-		<key>Resources/libavfilter.10.4.100.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libavfilter.10.4.100.dylib</string>
-		</dict>
-		<key>Resources/libavformat.61.7.100.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libavformat.61.7.100.dylib</string>
-		</dict>
-		<key>Resources/libavif.16.3.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libavif.16.3.0.dylib</string>
+			<string>cv2/.dylibs/libavformat.59.27.100.dylib</string>
 		</dict>
 		<key>Resources/libavif.16.4.1.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/libavif.16.4.1.dylib</string>
 		</dict>
-		<key>Resources/libavutil.59.39.100.dylib</key>
+		<key>Resources/libavutil.57.28.100.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libavutil.59.39.100.dylib</string>
-		</dict>
-		<key>Resources/libb2.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libb2.1.dylib</string>
+			<string>cv2/.dylibs/libavutil.57.28.100.dylib</string>
 		</dict>
 		<key>Resources/libbluray.2.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/libbluray.2.dylib</string>
 		</dict>
-		<key>Resources/libbrotlicommon.1.1.0.dylib</key>
+		<key>Resources/libbrotlicommon.1.0.9.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libbrotlicommon.1.1.0.dylib</string>
+			<string>cv2/.dylibs/libbrotlicommon.1.0.9.dylib</string>
 		</dict>
 		<key>Resources/libbrotlicommon.1.2.0.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/libbrotlicommon.1.2.0.dylib</string>
 		</dict>
-		<key>Resources/libbrotlidec.1.1.0.dylib</key>
+		<key>Resources/libbrotlidec.1.0.9.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libbrotlidec.1.1.0.dylib</string>
+			<string>cv2/.dylibs/libbrotlidec.1.0.9.dylib</string>
 		</dict>
 		<key>Resources/libbrotlidec.1.2.0.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/libbrotlidec.1.2.0.dylib</string>
 		</dict>
-		<key>Resources/libbrotlienc.1.1.0.dylib</key>
+		<key>Resources/libbrotlienc.1.0.9.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libbrotlienc.1.1.0.dylib</string>
+			<string>cv2/.dylibs/libbrotlienc.1.0.9.dylib</string>
 		</dict>
-		<key>Resources/libcjson.1.7.18.dylib</key>
+		<key>Resources/libcjson.1.7.15.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libcjson.1.7.18.dylib</string>
+			<string>cv2/.dylibs/libcjson.1.7.15.dylib</string>
+		</dict>
+		<key>Resources/libcrypto.1.1.dylib</key>
+		<dict>
+			<key>symlink</key>
+			<string>cv2/.dylibs/libcrypto.1.1.dylib</string>
 		</dict>
 		<key>Resources/libcrypto.3.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libcrypto.3.dylib</string>
+			<string>../Frameworks/libcrypto.3.dylib</string>
 		</dict>
-		<key>Resources/libdav1d.7.dylib</key>
+		<key>Resources/libdav1d.6.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libdav1d.7.dylib</string>
+			<string>cv2/.dylibs/libdav1d.6.dylib</string>
 		</dict>
 		<key>Resources/libfontconfig.1.dylib</key>
 		<dict>
@@ -13456,11 +13022,6 @@
 			<key>symlink</key>
 			<string>PIL/.dylibs/libfreetype.6.dylib</string>
 		</dict>
-		<key>Resources/libfribidi.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libfribidi.0.dylib</string>
-		</dict>
 		<key>Resources/libgcc_s.1.1.dylib</key>
 		<dict>
 			<key>symlink</key>
@@ -13470,16 +13031,6 @@
 		<dict>
 			<key>symlink</key>
 			<string>numpy/.dylibs/libgfortran.5.dylib</string>
-		</dict>
-		<key>Resources/libgif.7.2.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libgif.7.2.0.dylib</string>
-		</dict>
-		<key>Resources/libglib-2.0.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libglib-2.0.0.dylib</string>
 		</dict>
 		<key>Resources/libgmp.10.dylib</key>
 		<dict>
@@ -13491,25 +13042,20 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libgnutls.30.dylib</string>
 		</dict>
-		<key>Resources/libgraphite2.3.2.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libgraphite2.3.2.1.dylib</string>
-		</dict>
 		<key>Resources/libharfbuzz.0.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/libharfbuzz.0.dylib</string>
 		</dict>
-		<key>Resources/libhogweed.6.10.dylib</key>
+		<key>Resources/libhogweed.6.6.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libhogweed.6.10.dylib</string>
+			<string>cv2/.dylibs/libhogweed.6.6.dylib</string>
 		</dict>
-		<key>Resources/libhwy.1.2.0.dylib</key>
+		<key>Resources/libhwy.1.0.3.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libhwy.1.2.0.dylib</string>
+			<string>cv2/.dylibs/libhwy.1.0.3.dylib</string>
 		</dict>
 		<key>Resources/libidn2.0.dylib</key>
 		<dict>
@@ -13526,50 +13072,25 @@
 			<key>symlink</key>
 			<string>PIL/.dylibs/libjpeg.62.4.0.dylib</string>
 		</dict>
-		<key>Resources/libjpeg.8.3.2.dylib</key>
+		<key>Resources/libjxl.0.8.0.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libjpeg.8.3.2.dylib</string>
-		</dict>
-		<key>Resources/libjxl.0.11.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libjxl.0.11.1.dylib</string>
-		</dict>
-		<key>Resources/libjxl_cms.0.11.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libjxl_cms.0.11.1.dylib</string>
-		</dict>
-		<key>Resources/libjxl_threads.0.11.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libjxl_threads.0.11.1.dylib</string>
+			<string>cv2/.dylibs/libjxl.0.8.0.dylib</string>
 		</dict>
 		<key>Resources/liblcms2.2.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/liblcms2.2.dylib</string>
 		</dict>
-		<key>Resources/libleptonica.6.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libleptonica.6.dylib</string>
-		</dict>
-		<key>Resources/liblz4.1.10.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/liblz4.1.10.0.dylib</string>
-		</dict>
 		<key>Resources/liblzma.5.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/liblzma.5.dylib</string>
 		</dict>
-		<key>Resources/libmbedcrypto.3.6.3.dylib</key>
+		<key>Resources/libmbedcrypto.3.3.0.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libmbedcrypto.3.6.3.dylib</string>
+			<string>cv2/.dylibs/libmbedcrypto.3.3.0.dylib</string>
 		</dict>
 		<key>Resources/libmp3lame.0.dylib</key>
 		<dict>
@@ -13581,10 +13102,10 @@
 			<key>symlink</key>
 			<string>../Frameworks/libmpdec.4.dylib</string>
 		</dict>
-		<key>Resources/libnettle.8.10.dylib</key>
+		<key>Resources/libnettle.8.6.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libnettle.8.10.dylib</string>
+			<string>cv2/.dylibs/libnettle.8.6.dylib</string>
 		</dict>
 		<key>Resources/libogg.0.dylib</key>
 		<dict>
@@ -13606,10 +13127,10 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libopencore-amrwb.0.dylib</string>
 		</dict>
-		<key>Resources/libopenjp2.2.5.3.dylib</key>
+		<key>Resources/libopenjp2.2.5.0.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libopenjp2.2.5.3.dylib</string>
+			<string>cv2/.dylibs/libopenjp2.2.5.0.dylib</string>
 		</dict>
 		<key>Resources/libopenjp2.2.5.4.dylib</key>
 		<dict>
@@ -13626,65 +13147,40 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libp11-kit.0.dylib</string>
 		</dict>
-		<key>Resources/libpcre2-8.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libpcre2-8.0.dylib</string>
-		</dict>
 		<key>Resources/libpng16.16.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>PIL/.dylibs/libpng16.16.dylib</string>
-		</dict>
-		<key>Resources/libpostproc.58.3.100.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libpostproc.58.3.100.dylib</string>
 		</dict>
 		<key>Resources/libquadmath.0.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>numpy/.dylibs/libquadmath.0.dylib</string>
 		</dict>
-		<key>Resources/librav1e.0.8.0.dylib</key>
+		<key>Resources/librav1e.0.6.3.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/librav1e.0.8.0.dylib</string>
+			<string>cv2/.dylibs/librav1e.0.6.3.dylib</string>
 		</dict>
 		<key>Resources/librist.4.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/librist.4.dylib</string>
 		</dict>
-		<key>Resources/librubberband.3.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/librubberband.3.dylib</string>
-		</dict>
-		<key>Resources/libsamplerate.0.2.2.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libsamplerate.0.2.2.dylib</string>
-		</dict>
-		<key>Resources/libsharpyuv.0.1.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libsharpyuv.0.1.1.dylib</string>
-		</dict>
 		<key>Resources/libsharpyuv.0.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>PIL/.dylibs/libsharpyuv.0.dylib</string>
+			<string>cv2/.dylibs/libsharpyuv.0.dylib</string>
 		</dict>
-		<key>Resources/libsnappy.1.2.2.dylib</key>
+		<key>Resources/libsnappy.1.1.9.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libsnappy.1.2.2.dylib</string>
+			<string>cv2/.dylibs/libsnappy.1.1.9.dylib</string>
 		</dict>
-		<key>Resources/libsodium.26.dylib</key>
+		<key>Resources/libsodium.23.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libsodium.26.dylib</string>
+			<string>cv2/.dylibs/libsodium.23.dylib</string>
 		</dict>
 		<key>Resources/libsoxr.0.1.2.dylib</key>
 		<dict>
@@ -13696,30 +13192,30 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libspeex.1.dylib</string>
 		</dict>
-		<key>Resources/libsrt.1.5.4.dylib</key>
+		<key>Resources/libsrt.1.5.1.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libsrt.1.5.4.dylib</string>
+			<string>cv2/.dylibs/libsrt.1.5.1.dylib</string>
 		</dict>
-		<key>Resources/libssh.4.10.1.dylib</key>
+		<key>Resources/libssl.1.1.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libssh.4.10.1.dylib</string>
+			<string>cv2/.dylibs/libssl.1.1.dylib</string>
 		</dict>
 		<key>Resources/libssl.3.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libssl.3.dylib</string>
+			<string>../Frameworks/libssl.3.dylib</string>
 		</dict>
-		<key>Resources/libswresample.5.3.100.dylib</key>
+		<key>Resources/libswresample.4.7.100.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libswresample.5.3.100.dylib</string>
+			<string>cv2/.dylibs/libswresample.4.7.100.dylib</string>
 		</dict>
-		<key>Resources/libswscale.8.3.100.dylib</key>
+		<key>Resources/libswscale.6.7.100.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libswscale.8.3.100.dylib</string>
+			<string>cv2/.dylibs/libswscale.6.7.100.dylib</string>
 		</dict>
 		<key>Resources/libtasn1.6.dylib</key>
 		<dict>
@@ -13730,11 +13226,6 @@
 		<dict>
 			<key>symlink</key>
 			<string>../Frameworks/libtcl8.6.dylib</string>
-		</dict>
-		<key>Resources/libtesseract.5.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libtesseract.5.dylib</string>
 		</dict>
 		<key>Resources/libtheoradec.1.dylib</key>
 		<dict>
@@ -13756,25 +13247,15 @@
 			<key>symlink</key>
 			<string>../Frameworks/libtk8.6.dylib</string>
 		</dict>
-		<key>Resources/libunibreak.6.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libunibreak.6.dylib</string>
-		</dict>
 		<key>Resources/libunistring.5.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/libunistring.5.dylib</string>
 		</dict>
-		<key>Resources/libvidstab.1.2.dylib</key>
+		<key>Resources/libvmaf.1.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libvidstab.1.2.dylib</string>
-		</dict>
-		<key>Resources/libvmaf.3.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libvmaf.3.dylib</string>
+			<string>cv2/.dylibs/libvmaf.1.dylib</string>
 		</dict>
 		<key>Resources/libvorbis.0.dylib</key>
 		<dict>
@@ -13786,15 +13267,10 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libvorbisenc.2.dylib</string>
 		</dict>
-		<key>Resources/libvpx.11.dylib</key>
+		<key>Resources/libvpx.7.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libvpx.11.dylib</string>
-		</dict>
-		<key>Resources/libwebp.7.1.10.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libwebp.7.1.10.dylib</string>
+			<string>cv2/.dylibs/libvpx.7.dylib</string>
 		</dict>
 		<key>Resources/libwebp.7.dylib</key>
 		<dict>
@@ -13806,11 +13282,6 @@
 			<key>symlink</key>
 			<string>PIL/.dylibs/libwebpdemux.2.dylib</string>
 		</dict>
-		<key>Resources/libwebpmux.3.1.1.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libwebpmux.3.1.1.dylib</string>
-		</dict>
 		<key>Resources/libwebpmux.3.dylib</key>
 		<dict>
 			<key>symlink</key>
@@ -13821,25 +13292,10 @@
 			<key>symlink</key>
 			<string>cv2/.dylibs/libx264.164.dylib</string>
 		</dict>
-		<key>Resources/libx265.215.dylib</key>
+		<key>Resources/libx265.199.dylib</key>
 		<dict>
 			<key>symlink</key>
-			<string>cv2/.dylibs/libx265.215.dylib</string>
-		</dict>
-		<key>Resources/libxcb-shape.0.0.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libxcb-shape.0.0.0.dylib</string>
-		</dict>
-		<key>Resources/libxcb-shm.0.0.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libxcb-shm.0.0.0.dylib</string>
-		</dict>
-		<key>Resources/libxcb-xfixes.0.0.0.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libxcb-xfixes.0.0.0.dylib</string>
+			<string>cv2/.dylibs/libx265.199.dylib</string>
 		</dict>
 		<key>Resources/libxcb.1.1.0.dylib</key>
 		<dict>
@@ -13851,20 +13307,10 @@
 			<key>symlink</key>
 			<string>PIL/.dylibs/libz.1.3.1.zlib-ng.dylib</string>
 		</dict>
-		<key>Resources/libzimg.2.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libzimg.2.dylib</string>
-		</dict>
 		<key>Resources/libzmq.5.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>cv2/.dylibs/libzmq.5.dylib</string>
-		</dict>
-		<key>Resources/libzstd.1.5.7.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>cv2/.dylibs/libzstd.1.5.7.dylib</string>
 		</dict>
 		<key>Resources/markupsafe</key>
 		<dict>
